@@ -6,11 +6,26 @@ import io.cucumber.messages.types.Envelope;
 import java.io.IOException;
 import java.io.Writer;
 
+/**
+ * Serializes a message to a single line of JSON.
+ */
 public final class Serializer implements MessageToNdjsonWriter.Serializer {
 
     /**
-     * Converts a given {@link Envelope} to single line of JSON and writes it
-     * to the given writer.
+     * Serialize a message to single line of JSON and write it to the
+     * given {@code writer}.
+     *
+     * <ul>
+     *     <li>Values must be included unless their value is {@code null}
+     *     or an "absent" reference values such as empty optionals.
+     *     <li>Enums must be written as strings.
+     *     <li>Implementations may not close the {@code writer} after
+     *     writing a {@code value}.
+     * </ul>
+     *
+     * @param writer to write to
+     * @param value  to serialize
+     * @throws IOException if anything goes wrong
      */
     @Override
     public void writeValue(Writer writer, Envelope value) throws IOException {
