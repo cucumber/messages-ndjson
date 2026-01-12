@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>messages-ndjson</artifactId>
-    <version>0.1.1-SNAPSHOT</version>
+    <version>0.2.0</version>
     <packaging>jar</packaging>
     <name>Messages NDJSON</name>
     <description>Serialize and deserialize Cucumber Messages to and from JSON</description>
@@ -17,14 +17,14 @@
 
     <properties>
         <project.Automatic-Module-Name>io.cucumber.messagesn.ndjson</project.Automatic-Module-Name>
-        <project.build.outputTimestamp>1768235101</project.build.outputTimestamp>
+        <project.build.outputTimestamp>1768256716</project.build.outputTimestamp>
     </properties>
 
     <scm>
         <connection>scm:git:git://github.com/cucumber/messages-ndjson.git</connection>
         <developerConnection>scm:git:git@github.com:cucumber/messages-ndjson.git</developerConnection>
         <url>git://github.com/cucumber/messages-ndjson.git</url>
-        <tag>HEAD</tag>
+        <tag>v0.2.0</tag>
     </scm>
 
     <dependencyManagement>
