@@ -5,6 +5,9 @@ import io.cucumber.messages.types.Envelope;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.Objects;
+
+import static java.util.Objects.requireNonNull;
 
 /**
  * Serializes a message to a single line of JSON.
@@ -29,6 +32,8 @@ public final class Serializer implements MessageToNdjsonWriter.Serializer {
      */
     @Override
     public void writeValue(Writer writer, Envelope value) throws IOException {
+        requireNonNull(writer);
+        requireNonNull(value);
         Jackson.OBJECT_MAPPER.writeValue(writer, value);
     }
 }
