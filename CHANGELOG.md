@@ -7,6 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
-- Java implementation ([#1](https://github.com/cucumber/cucumber-json-formatter/pull/1))
+- Java implementation ([#1](https://github.com/cucumber/messages-ndjson/pull/1))
 
-[Unreleased]: https://github.com/cucumber/cucumber-json-formatter/compare/210b25cf78776dc9e08a073d3e289e75402db885...HEAD
+[Unreleased]: https://github.com/cucumber/messages-ndjson/compare/210b25cf78776dc9e08a073d3e289e75402db885...HEAD
