@@ -1,0 +1,36 @@
+[
+  {
+    "line": 1,
+    "uri": "samples/global-hooks-attachments/global-hooks-attachments.feature",
+    "id": "global-hooks-with-attachments",
+    "keyword": "Feature",
+    "name": "Global hooks with attachments",
+    "description": "  Attachments can be captured in BeforeAll and AfterAll hooks.",
+    "elements": [
+      {
+        "start_timestamp": "1970-01-01T00:00:00.004Z",
+        "line": 4,
+        "id": "global-hooks-with-attachments;a-scenario",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "A scenario",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "When ",
+            "line": 5,
+            "match": {
+              "location": "samples/global-hooks-attachments/global-hooks-attachments.ts:7"
+            },
+            "name": "a step passes",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ]
+      }
+    ],
+    "tags": [ ]
+  }
+]

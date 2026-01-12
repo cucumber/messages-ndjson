@@ -1,0 +1,33 @@
+[
+  {
+    "line": 1,
+    "uri": "samples/ambiguous/ambiguous.feature",
+    "id": "ambiguous-steps",
+    "keyword": "Feature",
+    "name": "Ambiguous steps",
+    "description": "  Multiple step definitions that match a pickle step result in an AMBIGUOUS status, since Cucumnber cannot determine\n  which one to execute.",
+    "elements": [
+      {
+        "start_timestamp": "1970-01-01T00:00:00.001Z",
+        "line": 5,
+        "id": "ambiguous-steps;multiple-step-definitions-for-a-step",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "Multiple step definitions for a step",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 6,
+            "match": { },
+            "name": "a step with multiple definitions",
+            "result": {
+              "status": "ambiguous"
+            }
+          }
+        ]
+      }
+    ],
+    "tags": [ ]
+  }
+]

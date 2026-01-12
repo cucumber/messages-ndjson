@@ -1,0 +1,105 @@
+[
+  {
+    "line": 1,
+    "uri": "samples/pending/pending.feature",
+    "id": "pending-steps",
+    "keyword": "Feature",
+    "name": "Pending steps",
+    "description": "  During development, step definitions can signal at runtime that they are\n  not yet implemented (or \"pending\") by returning or throwing a particular\n  value.\n\n  This causes subsequent steps in the scenario to be skipped, and the overall\n  result to be treated as a failure.",
+    "elements": [
+      {
+        "start_timestamp": "1970-01-01T00:00:00.001Z",
+        "line": 9,
+        "id": "pending-steps;unimplemented-step-signals-pending-status",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "Unimplemented step signals pending status",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 10,
+            "match": {
+              "location": "samples/pending/pending.ts:11"
+            },
+            "name": "an unimplemented pending step",
+            "result": {
+              "duration": 1000000,
+              "status": "pending"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "1970-01-01T00:00:00.005Z",
+        "line": 12,
+        "id": "pending-steps;steps-before-unimplemented-steps-are-executed",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "Steps before unimplemented steps are executed",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 13,
+            "match": {
+              "location": "samples/pending/pending.ts:3"
+            },
+            "name": "an implemented non-pending step",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "And ",
+            "line": 14,
+            "match": {
+              "location": "samples/pending/pending.ts:11"
+            },
+            "name": "an unimplemented pending step",
+            "result": {
+              "duration": 1000000,
+              "status": "pending"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "1970-01-01T00:00:00.011Z",
+        "line": 16,
+        "id": "pending-steps;steps-after-unimplemented-steps-are-skipped",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "Steps after unimplemented steps are skipped",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 17,
+            "match": {
+              "location": "samples/pending/pending.ts:11"
+            },
+            "name": "an unimplemented pending step",
+            "result": {
+              "duration": 1000000,
+              "status": "pending"
+            }
+          },
+          {
+            "keyword": "And ",
+            "line": 18,
+            "match": {
+              "location": "samples/pending/pending.ts:7"
+            },
+            "name": "an implemented step that is skipped",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      }
+    ],
+    "tags": [ ]
+  }
+]

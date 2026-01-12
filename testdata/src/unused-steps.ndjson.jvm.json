@@ -1,0 +1,36 @@
+[
+  {
+    "line": 1,
+    "uri": "samples/unused-steps/unused-steps.feature",
+    "id": "unused-steps",
+    "keyword": "Feature",
+    "name": "Unused steps",
+    "description": "  Depending on the run, some step definitions may not be used. This is valid, and the step definitions are still\n  includes in the stream of messages, which allows formatters to report on step usage if desired.",
+    "elements": [
+      {
+        "start_timestamp": "1970-01-01T00:00:00.001Z",
+        "line": 5,
+        "id": "unused-steps;a-scenario",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "a scenario",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 6,
+            "match": {
+              "location": "samples/unused-steps/unused-steps.ts:3"
+            },
+            "name": "a step that is used",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ]
+      }
+    ],
+    "tags": [ ]
+  }
+]

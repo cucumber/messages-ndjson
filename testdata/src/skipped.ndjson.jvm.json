@@ -1,0 +1,82 @@
+[
+  {
+    "line": 1,
+    "uri": "samples/skipped/skipped.feature",
+    "id": "skipping-scenarios",
+    "keyword": "Feature",
+    "name": "Skipping scenarios",
+    "description": "  Step definitions are able to signal at runtime that the scenario should\n  be skipped by raising a particular kind of exception status (For example PENDING or SKIPPED).\n\n  This can be useful in certain situations e.g. the current environment doesn't have\n  the right conditions for running a particular scenario.",
+    "elements": [
+      {
+        "start_timestamp": "1970-01-01T00:00:00.001Z",
+        "line": 9,
+        "id": "skipping-scenarios;skipping-from-a-step-doesn-t-affect-the-previous-steps",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "Skipping from a step doesn't affect the previous steps",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 10,
+            "match": {
+              "location": "samples/skipped/skipped.ts:3"
+            },
+            "name": "a step that does not skip",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "And ",
+            "line": 11,
+            "match": {
+              "location": "samples/skipped/skipped.ts:11"
+            },
+            "name": "I skip a step",
+            "result": {
+              "duration": 1000000,
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "1970-01-01T00:00:00.007Z",
+        "line": 13,
+        "id": "skipping-scenarios;skipping-from-a-step-causes-the-rest-of-the-scenario-to-be-skipped",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "Skipping from a step causes the rest of the scenario to be skipped",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 14,
+            "match": {
+              "location": "samples/skipped/skipped.ts:11"
+            },
+            "name": "I skip a step",
+            "result": {
+              "duration": 1000000,
+              "status": "skipped"
+            }
+          },
+          {
+            "keyword": "And ",
+            "line": 15,
+            "match": {
+              "location": "samples/skipped/skipped.ts:7"
+            },
+            "name": "a step that is skipped",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      }
+    ],
+    "tags": [ ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "line": 1,
+    "uri": "samples/global-hooks-afterall-error/global-hooks-afterall-error.feature",
+    "id": "global-hooks---afterall-error",
+    "keyword": "Feature",
+    "name": "Global hooks - AfterAll error",
+    "description": "  Errors in AfterAll hooks cause the whole test run to fail. The remaining AfterAll hooks will still run, in an\n  effort to clean up resources as well as possible.",
+    "elements": [
+      {
+        "start_timestamp": "1970-01-01T00:00:00.005Z",
+        "line": 5,
+        "id": "global-hooks---afterall-error;a-passing-scenario",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "A passing scenario",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "When ",
+            "line": 6,
+            "match": {
+              "location": "samples/global-hooks-afterall-error/global-hooks-afterall-error.ts:11"
+            },
+            "name": "a step passes",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ]
+      }
+    ],
+    "tags": [ ]
+  }
+]

@@ -1,0 +1,60 @@
+[
+  {
+    "line": 1,
+    "uri": "samples/global-hooks/global-hooks.feature",
+    "id": "global-hooks",
+    "keyword": "Feature",
+    "name": "Global hooks",
+    "description": "  Hooks can be at the test run level, so they run once before or after all test cases.\n\n  AfterAll hooks are executed in reverse order of definition.",
+    "elements": [
+      {
+        "start_timestamp": "1970-01-01T00:00:00.005Z",
+        "line": 6,
+        "id": "global-hooks;a-passing-scenario",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "A passing scenario",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "When ",
+            "line": 7,
+            "match": {
+              "location": "samples/global-hooks/global-hooks.ts:11"
+            },
+            "name": "a step passes",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "1970-01-01T00:00:00.009Z",
+        "line": 9,
+        "id": "global-hooks;a-failing-scenario",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "A failing scenario",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "When ",
+            "line": 10,
+            "match": {
+              "location": "samples/global-hooks/global-hooks.ts:15"
+            },
+            "name": "a step fails",
+            "result": {
+              "duration": 1000000,
+              "status": "failed",
+              "error_message": "Error: Exception in step\nsamples/global-hooks/global-hooks.feature:10"
+            }
+          }
+        ]
+      }
+    ],
+    "tags": [ ]
+  }
+]

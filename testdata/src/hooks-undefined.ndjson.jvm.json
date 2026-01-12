@@ -1,0 +1,55 @@
+[
+  {
+    "line": 1,
+    "uri": "samples/hooks-undefined/hooks-undefined.feature",
+    "id": "hooks---with-undefined-steps",
+    "keyword": "Feature",
+    "name": "Hooks - With Undefined Steps",
+    "description": "  Hooks also run before and after undefined steps",
+    "elements": [
+      {
+        "start_timestamp": "1970-01-01T00:00:00.001Z",
+        "line": 4,
+        "id": "hooks---with-undefined-steps;no-tags-and-a-undefined-step",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "No tags and a undefined step",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "When ",
+            "line": 5,
+            "match": { },
+            "name": "a step does not exist",
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "samples/hooks-undefined/hooks-undefined.ts:3"
+            },
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "samples/hooks-undefined/hooks-undefined.ts:7"
+            },
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ]
+      }
+    ],
+    "tags": [ ]
+  }
+]

@@ -1,0 +1,228 @@
+[
+  {
+    "line": 1,
+    "uri": "samples/hooks-skipped/hooks-skipped.feature",
+    "id": "hooks-and-skipped",
+    "keyword": "Feature",
+    "name": "Hooks and skipped",
+    "description": "  Before and After hooks behave a little differently when it comes to skipping.",
+    "elements": [
+      {
+        "start_timestamp": "1970-01-01T00:00:00.001Z",
+        "line": 5,
+        "id": "hooks-and-skipped;skip-from-a-step",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "Skip from a step",
+        "description": "  Skipping from a step causes all subsequent steps to be skipped, but any After hooks\n  will still be run normally.",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 10,
+            "match": {
+              "location": "samples/hooks-skipped/hooks-skipped.ts:19"
+            },
+            "name": "a step that skips",
+            "result": {
+              "duration": 1000000,
+              "status": "skipped"
+            }
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "samples/hooks-skipped/hooks-skipped.ts:3"
+            },
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          },
+          {
+            "match": {
+              "location": "samples/hooks-skipped/hooks-skipped.ts:11"
+            },
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "samples/hooks-skipped/hooks-skipped.ts:31"
+            },
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          },
+          {
+            "match": {
+              "location": "samples/hooks-skipped/hooks-skipped.ts:23"
+            },
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "1970-01-01T00:00:00.013Z",
+        "line": 13,
+        "id": "hooks-and-skipped;skip-from-a-before-hook",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "Skip from a Before hook",
+        "description": "  Skipping from a Before hook will cause all subsequent Before hooks and steps to be skipped,\n  but any After hooks will still be run normally.",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 18,
+            "match": {
+              "location": "samples/hooks-skipped/hooks-skipped.ts:15"
+            },
+            "name": "a normal step",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "samples/hooks-skipped/hooks-skipped.ts:3"
+            },
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          },
+          {
+            "match": {
+              "location": "samples/hooks-skipped/hooks-skipped.ts:7"
+            },
+            "result": {
+              "duration": 1000000,
+              "status": "skipped"
+            }
+          },
+          {
+            "match": {
+              "location": "samples/hooks-skipped/hooks-skipped.ts:11"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "samples/hooks-skipped/hooks-skipped.ts:31"
+            },
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          },
+          {
+            "match": {
+              "location": "samples/hooks-skipped/hooks-skipped.ts:23"
+            },
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@skip-before"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "1970-01-01T00:00:00.027Z",
+        "line": 21,
+        "id": "hooks-and-skipped;skip-from-an-after-hook",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "Skip from an After hook",
+        "description": "  Skipping from a After hook will only mark that hook as skipped. Any subsequent After hooks\n  will still be run normally.",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 26,
+            "match": {
+              "location": "samples/hooks-skipped/hooks-skipped.ts:15"
+            },
+            "name": "a normal step",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "samples/hooks-skipped/hooks-skipped.ts:3"
+            },
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          },
+          {
+            "match": {
+              "location": "samples/hooks-skipped/hooks-skipped.ts:11"
+            },
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "samples/hooks-skipped/hooks-skipped.ts:31"
+            },
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          },
+          {
+            "match": {
+              "location": "samples/hooks-skipped/hooks-skipped.ts:27"
+            },
+            "result": {
+              "duration": 1000000,
+              "status": "skipped"
+            }
+          },
+          {
+            "match": {
+              "location": "samples/hooks-skipped/hooks-skipped.ts:23"
+            },
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@skip-after"
+          }
+        ]
+      }
+    ],
+    "tags": [ ]
+  }
+]

@@ -1,0 +1,142 @@
+[
+  {
+    "line": 1,
+    "uri": "samples/hooks-conditional/hooks-conditional.feature",
+    "id": "hooks---conditional-execution",
+    "keyword": "Feature",
+    "name": "Hooks - Conditional execution",
+    "description": "  Hooks are special steps that run before or after each scenario's steps.\n\n  They can also conditionally target specific scenarios, using tag expressions.",
+    "elements": [
+      {
+        "start_timestamp": "1970-01-01T00:00:00.001Z",
+        "line": 7,
+        "id": "hooks---conditional-execution;a-failure-in-the-before-hook-and-a-skipped-step",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "A failure in the before hook and a skipped step",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "When ",
+            "line": 8,
+            "match": {
+              "location": "samples/hooks-conditional/hooks-conditional.ts:11"
+            },
+            "name": "a step passes",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "samples/hooks-conditional/hooks-conditional.ts:7"
+            },
+            "result": {
+              "duration": 1000000,
+              "status": "failed",
+              "error_message": "Error: Exception in conditional hook\nsamples/hooks-conditional/hooks-conditional.feature:7"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@fail-before"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "1970-01-01T00:00:00.007Z",
+        "line": 11,
+        "id": "hooks---conditional-execution;a-failure-in-the-after-hook-and-a-passed-step",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "A failure in the after hook and a passed step",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "When ",
+            "line": 12,
+            "match": {
+              "location": "samples/hooks-conditional/hooks-conditional.ts:11"
+            },
+            "name": "a step passes",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "samples/hooks-conditional/hooks-conditional.ts:15"
+            },
+            "result": {
+              "duration": 1000000,
+              "status": "failed",
+              "error_message": "Error: Exception in conditional hook\nsamples/hooks-conditional/hooks-conditional.feature:11"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@fail-after"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "1970-01-01T00:00:00.013Z",
+        "line": 15,
+        "id": "hooks---conditional-execution;with-an-tag--a-passed-step-and-hook",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "With an tag, a passed step and hook",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "When ",
+            "line": 16,
+            "match": {
+              "location": "samples/hooks-conditional/hooks-conditional.ts:11"
+            },
+            "name": "a step passes",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "samples/hooks-conditional/hooks-conditional.ts:3"
+            },
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "samples/hooks-conditional/hooks-conditional.ts:19"
+            },
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@passing-hook"
+          }
+        ]
+      }
+    ],
+    "tags": [ ]
+  }
+]

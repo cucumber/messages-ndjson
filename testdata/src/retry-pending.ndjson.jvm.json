@@ -1,0 +1,36 @@
+[
+  {
+    "line": 1,
+    "uri": "samples/retry-pending/retry-pending.feature",
+    "id": "retry---with-pending-steps",
+    "keyword": "Feature",
+    "name": "Retry - With Pending Steps",
+    "description": "",
+    "elements": [
+      {
+        "start_timestamp": "1970-01-01T00:00:00.001Z",
+        "line": 2,
+        "id": "retry---with-pending-steps;test-cases-won-t-retry-when-the-status-is-pending",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "Test cases won't retry when the status is PENDING",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 3,
+            "match": {
+              "location": "samples/retry-pending/retry-pending.ts:3"
+            },
+            "name": "a pending step",
+            "result": {
+              "duration": 1000000,
+              "status": "pending"
+            }
+          }
+        ]
+      }
+    ],
+    "tags": [ ]
+  }
+]
