@@ -5,7 +5,6 @@ import io.cucumber.messages.types.Envelope;
 
 import java.io.IOException;
 import java.io.Writer;
-import java.util.Objects;
 
 import static java.util.Objects.requireNonNull;
 
