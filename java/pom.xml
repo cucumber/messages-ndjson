@@ -11,7 +11,7 @@
     <artifactId>messages-ndjson</artifactId>
     <version>0.1.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>Messages Json</name>
+    <name>Messages NDJSON</name>
     <description>Serialize and deserialize Cucumber Messages to and from JSON</description>
     <url>https://github.com/cucumber/messages-ndjson</url>
 
