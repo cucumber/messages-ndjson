@@ -30,7 +30,7 @@ class JacksonTest {
 
     @Test
     void can_deserialize_envelope() throws JsonProcessingException {
-        Envelope source = Envelope.of(new TestRunStarted(new Timestamp(3L, 14), UUID.randomUUID().toString()));
+        Envelope source = Envelope.of(new TestRunStarted(new Timestamp(3L, 14L), UUID.randomUUID().toString()));
         String json = OBJECT_MAPPER.writeValueAsString(source);
         assertThat(OBJECT_MAPPER.readValue(json, Envelope.class)).isEqualTo(source);
     }
