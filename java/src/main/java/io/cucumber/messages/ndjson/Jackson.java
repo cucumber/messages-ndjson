@@ -13,7 +13,7 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Value;
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_ABSENT;
 
 final class Jackson {
-    public static final JsonMapper OBJECT_MAPPER = JsonMapper.builder()
+    static final JsonMapper OBJECT_MAPPER = JsonMapper.builder()
             .addModule(new Jdk8Module())
             .addModule(new ParameterNamesModule(Mode.PROPERTIES))
             .defaultPropertyInclusion(Value.construct(NON_ABSENT, NON_ABSENT))
@@ -26,6 +26,7 @@ final class Jackson {
             .build();
 
     private Jackson() {
+        /* no-op */
     }
 }
 
