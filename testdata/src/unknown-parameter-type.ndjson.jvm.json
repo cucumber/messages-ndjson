@@ -1,0 +1,33 @@
+[
+  {
+    "line": 1,
+    "uri": "samples/unknown-parameter-type/unknown-parameter-type.feature",
+    "id": "parameter-types",
+    "keyword": "Feature",
+    "name": "Parameter Types",
+    "description": "  Cucumber will generate an error message if a step definition registers\n  an unknown parameter type, but the suite will run. Additionally, because\n  the step is effectively undefined, a suggestion will also be created.",
+    "elements": [
+      {
+        "start_timestamp": "1970-01-01T00:00:00.001Z",
+        "line": 6,
+        "id": "parameter-types;undefined-parameter-type",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "undefined parameter type",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 7,
+            "match": { },
+            "name": "CDG is closed because of a strike",
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ]
+      }
+    ],
+    "tags": [ ]
+  }
+]

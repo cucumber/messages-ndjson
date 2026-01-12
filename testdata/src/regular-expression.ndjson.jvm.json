@@ -1,0 +1,93 @@
+[
+  {
+    "line": 1,
+    "uri": "samples/regular-expression/regular-expression.feature",
+    "id": "regular-expression",
+    "keyword": "Feature",
+    "name": "regular expression",
+    "description": "  Cucumber supports both Cucumber and regular expressions in step\n  definitions. This shows a sample that uses a regular expression.",
+    "elements": [
+      {
+        "start_timestamp": "1970-01-01T00:00:00.001Z",
+        "line": 6,
+        "id": "regular-expression;regular-expression",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "regular expression",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 7,
+            "match": {
+              "location": "samples/regular-expression/regular-expression.ts:3",
+              "arguments": [
+                {
+                  "val": "cucumber",
+                  "offset": 2
+                },
+                { },
+                { }
+              ]
+            },
+            "name": "a cucumber",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "Given ",
+            "line": 8,
+            "match": {
+              "location": "samples/regular-expression/regular-expression.ts:3",
+              "arguments": [
+                {
+                  "val": "cucumber",
+                  "offset": 2
+                },
+                {
+                  "val": "zucchini",
+                  "offset": 17
+                },
+                { }
+              ]
+            },
+            "name": "a cucumber and a zucchini",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "Given ",
+            "line": 9,
+            "match": {
+              "location": "samples/regular-expression/regular-expression.ts:3",
+              "arguments": [
+                {
+                  "val": "cucumber",
+                  "offset": 2
+                },
+                {
+                  "val": "zucchini",
+                  "offset": 17
+                },
+                {
+                  "val": "gourd",
+                  "offset": 32
+                }
+              ]
+            },
+            "name": "a cucumber and a zucchini and a gourd",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ]
+      }
+    ],
+    "tags": [ ]
+  }
+]

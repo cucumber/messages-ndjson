@@ -1,0 +1,23 @@
+[
+  {
+    "line": 1,
+    "uri": "samples/empty/empty.feature",
+    "id": "empty-scenarios",
+    "keyword": "Feature",
+    "name": "Empty Scenarios",
+    "description": "  Sometimes we want to quickly jot down a new scenario without specifying any actual steps\n  for what should be executed.\n\n  In this instance we want to stipulate what should / shouldn't run and what the output is.",
+    "elements": [
+      {
+        "start_timestamp": "1970-01-01T00:00:00.001Z",
+        "line": 7,
+        "id": "empty-scenarios;blank-scenario",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "Blank Scenario",
+        "description": "",
+        "steps": [ ]
+      }
+    ],
+    "tags": [ ]
+  }
+]

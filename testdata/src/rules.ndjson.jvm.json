@@ -1,0 +1,231 @@
+[
+  {
+    "line": 1,
+    "uri": "samples/rules/rules.feature",
+    "id": "usage-of-a-`rule`",
+    "keyword": "Feature",
+    "name": "Usage of a `Rule`",
+    "description": "  You can place scenarios inside rules. This makes it possible to structure Gherkin documents\n  in the same way as [example maps](https://cucumber.io/blog/bdd/example-mapping-introduction/).\n\n  You can also use the Examples synonym for Scenario to make them even similar.",
+    "elements": [
+      {
+        "start_timestamp": "1970-01-01T00:00:00.001Z",
+        "line": 9,
+        "id": "usage-of-a-`rule`;a-sale-cannot-happen-if-the-customer-does-not-have-enough-money;not-enough-money",
+        "type": "scenario",
+        "keyword": "Example",
+        "name": "Not enough money",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 10,
+            "match": {
+              "location": "samples/rules/rules.ts:4",
+              "arguments": [
+                {
+                  "val": "100",
+                  "offset": 17
+                }
+              ]
+            },
+            "name": "the customer has 100 cents",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "And ",
+            "line": 11,
+            "match": {
+              "location": "samples/rules/rules.ts:8"
+            },
+            "name": "there are chocolate bars in stock",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "When ",
+            "line": 12,
+            "match": {
+              "location": "samples/rules/rules.ts:16",
+              "arguments": [
+                {
+                  "val": "125",
+                  "offset": 28
+                }
+              ]
+            },
+            "name": "the customer tries to buy a 125 cent chocolate bar",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "Then ",
+            "line": 13,
+            "match": {
+              "location": "samples/rules/rules.ts:22"
+            },
+            "name": "the sale should not happen",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "1970-01-01T00:00:00.011Z",
+        "line": 16,
+        "id": "usage-of-a-`rule`;a-sale-cannot-happen-if-the-customer-does-not-have-enough-money;enough-money",
+        "type": "scenario",
+        "keyword": "Example",
+        "name": "Enough money",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 17,
+            "match": {
+              "location": "samples/rules/rules.ts:4",
+              "arguments": [
+                {
+                  "val": "100",
+                  "offset": 17
+                }
+              ]
+            },
+            "name": "the customer has 100 cents",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "And ",
+            "line": 18,
+            "match": {
+              "location": "samples/rules/rules.ts:8"
+            },
+            "name": "there are chocolate bars in stock",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "When ",
+            "line": 19,
+            "match": {
+              "location": "samples/rules/rules.ts:16",
+              "arguments": [
+                {
+                  "val": "75",
+                  "offset": 28
+                }
+              ]
+            },
+            "name": "the customer tries to buy a 75 cent chocolate bar",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "Then ",
+            "line": 20,
+            "match": {
+              "location": "samples/rules/rules.ts:26"
+            },
+            "name": "the sale should happen",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "1970-01-01T00:00:00.021Z",
+        "line": 25,
+        "id": "usage-of-a-`rule`;a-sale-cannot-happen-if-there-is-no-stock;no-chocolates-left",
+        "type": "scenario",
+        "keyword": "Example",
+        "name": "No chocolates left",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 26,
+            "match": {
+              "location": "samples/rules/rules.ts:4",
+              "arguments": [
+                {
+                  "val": "100",
+                  "offset": 17
+                }
+              ]
+            },
+            "name": "the customer has 100 cents",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "And ",
+            "line": 27,
+            "match": {
+              "location": "samples/rules/rules.ts:12"
+            },
+            "name": "there are no chocolate bars in stock",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "When ",
+            "line": 28,
+            "match": {
+              "location": "samples/rules/rules.ts:16",
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 28
+                }
+              ]
+            },
+            "name": "the customer tries to buy a 1 cent chocolate bar",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "Then ",
+            "line": 29,
+            "match": {
+              "location": "samples/rules/rules.ts:22"
+            },
+            "name": "the sale should not happen",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@some-tag"
+          }
+        ]
+      }
+    ],
+    "tags": [ ]
+  }
+]

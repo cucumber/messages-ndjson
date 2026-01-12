@@ -1,0 +1,33 @@
+[
+  {
+    "line": 1,
+    "uri": "samples/retry-undefined/retry-undefined.feature",
+    "id": "retry---with-undefined-steps",
+    "keyword": "Feature",
+    "name": "Retry - With Undefined Steps",
+    "description": "",
+    "elements": [
+      {
+        "start_timestamp": "1970-01-01T00:00:00.001Z",
+        "line": 2,
+        "id": "retry---with-undefined-steps;test-cases-won-t-retry-when-the-status-is-undefined",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "Test cases won't retry when the status is UNDEFINED",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 3,
+            "match": { },
+            "name": "a non-existent step",
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ]
+      }
+    ],
+    "tags": [ ]
+  }
+]

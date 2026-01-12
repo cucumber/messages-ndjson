@@ -1,0 +1,37 @@
+[
+  {
+    "line": 1,
+    "uri": "samples/stack-traces/stack-traces.feature",
+    "id": "stack-traces",
+    "keyword": "Feature",
+    "name": "Stack traces",
+    "description": "  Stack traces can help you diagnose the source of a bug.\n\n  Cucumber provides helpful stack traces that includes the stack frames from the\n  Gherkin document and remove uninteresting frames by default.\n\n  The first line of the stack trace will contain a reference to the feature file.",
+    "elements": [
+      {
+        "start_timestamp": "1970-01-01T00:00:00.001Z",
+        "line": 9,
+        "id": "stack-traces;a-failing-step",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "A failing step",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "When ",
+            "line": 10,
+            "match": {
+              "location": "samples/stack-traces/stack-traces.ts:3"
+            },
+            "name": "a step throws an exception",
+            "result": {
+              "duration": 1000000,
+              "status": "failed",
+              "error_message": "Error: BOOM\nsamples/stack-traces/stack-traces.feature:10"
+            }
+          }
+        ]
+      }
+    ],
+    "tags": [ ]
+  }
+]

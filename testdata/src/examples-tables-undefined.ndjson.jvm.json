@@ -1,0 +1,193 @@
+[
+  {
+    "line": 1,
+    "uri": "samples/examples-tables-undefined/examples-undefined.feature",
+    "id": "examples-tables---with-undefined-steps",
+    "keyword": "Feature",
+    "name": "Examples Tables - With Undefined Steps",
+    "description": "  The replacement pattern used in scenario outlines does not influence how steps\n  are matched. The replacement pattern is replaced, and step definitions are\n  matched against that text. Because of that the following results in one\n  undefined step for each example and a suggested snippet to implement it. ",
+    "elements": [
+      {
+        "start_timestamp": "1970-01-01T00:00:00.001Z",
+        "line": 15,
+        "id": "examples-tables---with-undefined-steps;eating-cucumbers;these-are-undefined-because-the-value-is-not-an-{int};2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "name": "Eating cucumbers",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 8,
+            "match": { },
+            "name": "there are pear cucumbers",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "keyword": "When ",
+            "line": 9,
+            "match": {
+              "location": "samples/examples-tables-undefined/examples-tables-undefined.ts:8",
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 6
+                }
+              ]
+            },
+            "name": "I eat 1 cucumbers",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "keyword": "Then ",
+            "line": 10,
+            "match": {
+              "location": "samples/examples-tables-undefined/examples-tables-undefined.ts:12",
+              "arguments": [
+                {
+                  "val": "12",
+                  "offset": 14
+                }
+              ]
+            },
+            "name": "I should have 12 cucumbers",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@undefined"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "1970-01-01T00:00:00.009Z",
+        "line": 16,
+        "id": "examples-tables---with-undefined-steps;eating-cucumbers;these-are-undefined-because-the-value-is-not-an-{int};3",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "name": "Eating cucumbers",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 8,
+            "match": {
+              "location": "samples/examples-tables-undefined/examples-tables-undefined.ts:4",
+              "arguments": [
+                {
+                  "val": "12",
+                  "offset": 10
+                }
+              ]
+            },
+            "name": "there are 12 cucumbers",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "When ",
+            "line": 9,
+            "match": { },
+            "name": "I eat banana cucumbers",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "keyword": "Then ",
+            "line": 10,
+            "match": {
+              "location": "samples/examples-tables-undefined/examples-tables-undefined.ts:12",
+              "arguments": [
+                {
+                  "val": "12",
+                  "offset": 14
+                }
+              ]
+            },
+            "name": "I should have 12 cucumbers",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@undefined"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "1970-01-01T00:00:00.017Z",
+        "line": 17,
+        "id": "examples-tables---with-undefined-steps;eating-cucumbers;these-are-undefined-because-the-value-is-not-an-{int};4",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "name": "Eating cucumbers",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 8,
+            "match": {
+              "location": "samples/examples-tables-undefined/examples-tables-undefined.ts:4",
+              "arguments": [
+                {
+                  "val": "0",
+                  "offset": 10
+                }
+              ]
+            },
+            "name": "there are 0 cucumbers",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "When ",
+            "line": 9,
+            "match": {
+              "location": "samples/examples-tables-undefined/examples-tables-undefined.ts:8",
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 6
+                }
+              ]
+            },
+            "name": "I eat 1 cucumbers",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "Then ",
+            "line": 10,
+            "match": { },
+            "name": "I should have apple cucumbers",
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@undefined"
+          }
+        ]
+      }
+    ],
+    "tags": [ ]
+  }
+]

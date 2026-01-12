@@ -1,0 +1,116 @@
+[
+  {
+    "line": 1,
+    "uri": "samples/undefined/undefined.feature",
+    "id": "undefined-steps",
+    "keyword": "Feature",
+    "name": "Undefined steps",
+    "description": "  At runtime, Cucumber may encounter a step in a scenario that it cannot match to a step definition.\n\n  In these cases, the scenario is not able to run and so the step status will be UNDEFINED, with\n  subsequent steps being SKIPPED and the overall result will be FAILURE.",
+    "elements": [
+      {
+        "start_timestamp": "1970-01-01T00:00:00.001Z",
+        "line": 8,
+        "id": "undefined-steps;an-undefined-step-causes-a-failure",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "An undefined step causes a failure",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 9,
+            "match": { },
+            "name": "a step that is yet to be defined",
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "1970-01-01T00:00:00.005Z",
+        "line": 11,
+        "id": "undefined-steps;steps-before-undefined-steps-are-executed",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "Steps before undefined steps are executed",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 12,
+            "match": {
+              "location": "samples/undefined/undefined.ts:3"
+            },
+            "name": "an implemented step",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "And ",
+            "line": 13,
+            "match": { },
+            "name": "a step that is yet to be defined",
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "1970-01-01T00:00:00.011Z",
+        "line": 15,
+        "id": "undefined-steps;steps-after-undefined-steps-are-skipped",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "Steps after undefined steps are skipped",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 16,
+            "match": { },
+            "name": "a step that is yet to be defined",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "keyword": "And ",
+            "line": 17,
+            "match": {
+              "location": "samples/undefined/undefined.ts:7"
+            },
+            "name": "a step that will be skipped",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "1970-01-01T00:00:00.017Z",
+        "line": 19,
+        "id": "undefined-steps;snippets-reflect-parameter-types",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "Snippets reflect parameter types",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 20,
+            "match": { },
+            "name": "a list of 8 things",
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ]
+      }
+    ],
+    "tags": [ ]
+  }
+]

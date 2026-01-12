@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-parent</artifactId>
+        <version>4.5.0</version>
+    </parent>
+
+    <artifactId>messages-ndjson</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>Messages Json</name>
+    <description>Serialize and deserialize Cucumber Messages to and from JSON</description>
+    <url>https://github.com/cucumber/messages-ndjson</url>
+
+    <properties>
+        <project.Automatic-Module-Name>io.cucumber.messagesn.ndjson</project.Automatic-Module-Name>
+        <project.build.outputTimestamp>1765238562</project.build.outputTimestamp>
+    </properties>
+
+    <scm>
+        <connection>scm:git:git://github.com/cucumber/messages-ndjson.git</connection>
+        <developerConnection>scm:git:git@github.com:cucumber/messages-ndjson.git</developerConnection>
+        <url>git://github.com/cucumber/messages-ndjson.git</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>6.0.1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson</groupId>
+                <artifactId>jackson-bom</artifactId>
+                <version>2.20.1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.assertj</groupId>
+                <artifactId>assertj-bom</artifactId>
+                <version>3.27.6</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>messages</artifactId>
+            <version>[18.0.0,31.0.0)</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jdk8</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.module</groupId>
+            <artifactId>jackson-module-parameter-names</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>compatibility-kit</artifactId>
+            <version>26.0.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.skyscreamer</groupId>
+            <artifactId>jsonassert</artifactId>
+            <version>1.5.3</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer"/>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheNoticeResourceTransformer">
+                                    <addHeader>false</addHeader>
+                                </transformer>
+                            </transformers>
+                            <artifactSet>
+                                <includes>
+                                    <include>com.fasterxml.jackson.core:jackson-annotations</include>
+                                    <include>com.fasterxml.jackson.core:jackson-core</include>
+                                    <include>com.fasterxml.jackson.core:jackson-databind</include>
+                                    <include>com.fasterxml.jackson.datatype:jackson-datatype-jdk8</include>
+                                    <include>com.fasterxml.jackson.module:jackson-module-parameter-names</include>
+                                </includes>
+                            </artifactSet>
+                            <relocations>
+                                <relocation>
+                                    <pattern>com.fasterxml</pattern>
+                                    <shadedPattern>io.cucumber.messages.ndjson.internal.com.fasterxml</shadedPattern>
+                                </relocation>
+                            </relocations>
+                            <filters>
+                                <filter>
+                                    <artifact>com.fasterxml.jackson.core:jackson-databind</artifact>
+                                    <excludes>
+                                        <exclude>**/module-info.class</exclude>
+                                        <exclude>**/module-info.class</exclude>
+                                        <exclude>META-INF/MANIFEST.MF</exclude>
+                                        <exclude>META-INF/services/**</exclude>
+                                        <exclude>META-INF/versions/**</exclude>
+                                    </excludes>
+                                </filter>
+                                <filter>
+                                    <artifact>com.fasterxml.jackson.core:jackson-core</artifact>
+                                    <excludes>
+                                        <exclude>**/module-info.class</exclude>
+                                        <exclude>META-INF/MANIFEST.MF</exclude>
+                                        <exclude>META-INF/services/**</exclude>
+                                        <exclude>META-INF/versions/**</exclude>
+                                    </excludes>
+                                </filter>
+                                <filter>
+                                    <artifact>com.fasterxml.jackson.core:jackson-annotations</artifact>
+                                    <excludes>
+                                        <exclude>**/module-info.class</exclude>
+                                        <exclude>META-INF/MANIFEST.MF</exclude>
+                                    </excludes>
+                                </filter>
+                                <filter>
+                                    <artifact>com.fasterxml.jackson.datatype:jackson-datatype-jdk8</artifact>
+                                    <excludes>
+                                        <exclude>**/module-info.class</exclude>
+                                        <exclude>META-INF/MANIFEST.MF</exclude>
+                                        <exclude>META-INF/services/**</exclude>
+                                    </excludes>
+                                </filter>
+                                <filter>
+                                    <artifact>com.fasterxml.jackson.module:jackson-module-parameter-names</artifact>
+                                    <excludes>
+                                        <exclude>**/module-info.class</exclude>
+                                        <exclude>META-INF/MANIFEST.MF</exclude>
+                                        <exclude>META-INF/services/**</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

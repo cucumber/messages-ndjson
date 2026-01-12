@@ -1,0 +1,221 @@
+[
+  {
+    "line": 1,
+    "uri": "samples/markdown/markdown.feature.md",
+    "id": "cheese",
+    "keyword": "Feature",
+    "name": "Cheese",
+    "description": "| boz | boo |",
+    "elements": [
+      {
+        "start_timestamp": "1970-01-01T00:00:00.001Z",
+        "line": 38,
+        "id": "cheese;nom-nom-nom;ylajali-;because-we-need-more-tables;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "name": "Ylajali!",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 16,
+            "match": {
+              "location": "samples/markdown/markdown.ts:4"
+            },
+            "name": "some TypeScript code:",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "doc_string": {
+              "line": 17,
+              "value": "type Cheese = 'reblochon' | 'roquefort' | 'rocamadour'",
+              "content_type": "typescript"
+            }
+          },
+          {
+            "keyword": "And ",
+            "line": 20,
+            "match": {
+              "location": "samples/markdown/markdown.ts:8"
+            },
+            "name": "some classic Gherkin:",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "doc_string": {
+              "line": 21,
+              "value": "Given there are 24 apples in Mary's basket",
+              "content_type": "gherkin"
+            }
+          },
+          {
+            "keyword": "When ",
+            "line": 24,
+            "match": {
+              "location": "samples/markdown/markdown.ts:12",
+              "arguments": [
+                {
+                  "val": "fail",
+                  "offset": 50
+                }
+              ]
+            },
+            "name": "we use a data table and attach something and then fail",
+            "result": {
+              "duration": 1000000,
+              "status": "failed",
+              "error_message": "Error: You asked me to fail\nsamples/markdown/markdown.feature.md:24"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "name",
+                  "age"
+                ]
+              },
+              {
+                "cells": [
+                  "Bill",
+                  "3"
+                ]
+              },
+              {
+                "cells": [
+                  "Jane",
+                  "6"
+                ]
+              },
+              {
+                "cells": [
+                  "Isla",
+                  "5"
+                ]
+              }
+            ],
+            "output": [
+              "We are logging some plain text (fail)"
+            ]
+          },
+          {
+            "keyword": "Then ",
+            "line": 30,
+            "match": {
+              "location": "samples/markdown/markdown.ts:23"
+            },
+            "name": "this might or might not run",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "1970-01-01T00:00:00.012Z",
+        "line": 39,
+        "id": "cheese;nom-nom-nom;ylajali-;because-we-need-more-tables;3",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "name": "Ylajali!",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 16,
+            "match": {
+              "location": "samples/markdown/markdown.ts:4"
+            },
+            "name": "some TypeScript code:",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "doc_string": {
+              "line": 17,
+              "value": "type Cheese = 'reblochon' | 'roquefort' | 'rocamadour'",
+              "content_type": "typescript"
+            }
+          },
+          {
+            "keyword": "And ",
+            "line": 20,
+            "match": {
+              "location": "samples/markdown/markdown.ts:8"
+            },
+            "name": "some classic Gherkin:",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "doc_string": {
+              "line": 21,
+              "value": "Given there are 24 apples in Mary's basket",
+              "content_type": "gherkin"
+            }
+          },
+          {
+            "keyword": "When ",
+            "line": 24,
+            "match": {
+              "location": "samples/markdown/markdown.ts:12",
+              "arguments": [
+                {
+                  "val": "pass",
+                  "offset": 50
+                }
+              ]
+            },
+            "name": "we use a data table and attach something and then pass",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "name",
+                  "age"
+                ]
+              },
+              {
+                "cells": [
+                  "Bill",
+                  "3"
+                ]
+              },
+              {
+                "cells": [
+                  "Jane",
+                  "6"
+                ]
+              },
+              {
+                "cells": [
+                  "Isla",
+                  "5"
+                ]
+              }
+            ],
+            "output": [
+              "We are logging some plain text (pass)"
+            ]
+          },
+          {
+            "keyword": "Then ",
+            "line": 30,
+            "match": {
+              "location": "samples/markdown/markdown.ts:23"
+            },
+            "name": "this might or might not run",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ]
+      }
+    ],
+    "tags": [ ]
+  }
+]

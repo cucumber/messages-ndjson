@@ -1,0 +1,95 @@
+[
+  {
+    "line": 1,
+    "uri": "samples/doc-strings/doc-strings.feature",
+    "id": "doc-strings",
+    "keyword": "Feature",
+    "name": "Doc strings",
+    "description": "  Doc strings are a way to supply long, sometimes multi-line, text to a step. They are passed as the last argument\n  to the step definition.",
+    "elements": [
+      {
+        "start_timestamp": "1970-01-01T00:00:00.001Z",
+        "line": 5,
+        "id": "doc-strings;a-doc-string-with-standard-delimiter",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "a doc string with standard delimiter",
+        "description": "    Three double quotes above and below are the standard delimiter for doc strings.",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 8,
+            "match": {
+              "location": "samples/doc-strings/doc-strings.ts:3"
+            },
+            "name": "a doc string:",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "doc_string": {
+              "line": 9,
+              "value": "Here is some content\nAnd some more on another line"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "1970-01-01T00:00:00.005Z",
+        "line": 14,
+        "id": "doc-strings;a-doc-string-with-backticks-delimiter",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "a doc string with backticks delimiter",
+        "description": "    Backticks can also be used, like Markdown, but are less widely supported by editors.",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 17,
+            "match": {
+              "location": "samples/doc-strings/doc-strings.ts:3"
+            },
+            "name": "a doc string:",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "doc_string": {
+              "line": 18,
+              "value": "Here is some content\nAnd some more on another line"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "1970-01-01T00:00:00.009Z",
+        "line": 23,
+        "id": "doc-strings;a-doc-string-with-media-type",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "a doc string with media type",
+        "description": "    The media type can be optionally specified too, following the opening delimiter.",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 26,
+            "match": {
+              "location": "samples/doc-strings/doc-strings.ts:3"
+            },
+            "name": "a doc string:",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "doc_string": {
+              "line": 27,
+              "value": "{\n  \"foo\": \"bar\"\n}",
+              "content_type": "application/json"
+            }
+          }
+        ]
+      }
+    ],
+    "tags": [ ]
+  }
+]

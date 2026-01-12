@@ -1,0 +1,42 @@
+[
+  {
+    "line": 1,
+    "uri": "samples/parameter-types/parameter-types.feature",
+    "id": "parameter-types",
+    "keyword": "Feature",
+    "name": "Parameter Types",
+    "description": "  Cucumber lets you define your own parameter types, which can be used\n  in Cucumber Expressions.\n\n  This lets you define a precise domain-specific vocabulary which can be used to\n  generate a glossary with examples taken from your scenarios.\n\n  Parameter types also enable you to transform strings and tables into different types.",
+    "elements": [
+      {
+        "start_timestamp": "1970-01-01T00:00:00.001Z",
+        "line": 10,
+        "id": "parameter-types;flight-transformer",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "Flight transformer",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 11,
+            "match": {
+              "location": "samples/parameter-types/parameter-types.ts:16",
+              "arguments": [
+                {
+                  "val": "LHR-CDG",
+                  "offset": 0
+                }
+              ]
+            },
+            "name": "LHR-CDG has been delayed",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ]
+      }
+    ],
+    "tags": [ ]
+  }
+]

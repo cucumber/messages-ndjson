@@ -1,0 +1,33 @@
+[
+  {
+    "line": 1,
+    "uri": "samples/retry-ambiguous/retry-ambiguous.feature",
+    "id": "retry---with-ambiguous-steps",
+    "keyword": "Feature",
+    "name": "Retry - With Ambiguous Steps",
+    "description": "",
+    "elements": [
+      {
+        "start_timestamp": "1970-01-01T00:00:00.001Z",
+        "line": 2,
+        "id": "retry---with-ambiguous-steps;test-cases-won-t-retry-when-the-status-is-ambiguous",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "Test cases won't retry when the status is AMBIGUOUS",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 3,
+            "match": { },
+            "name": "an ambiguous step",
+            "result": {
+              "status": "ambiguous"
+            }
+          }
+        ]
+      }
+    ],
+    "tags": [ ]
+  }
+]

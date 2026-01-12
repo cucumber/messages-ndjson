@@ -1,0 +1,58 @@
+[
+  {
+    "line": 1,
+    "uri": "samples/hooks-named/hooks-named.feature",
+    "id": "hooks---named",
+    "keyword": "Feature",
+    "name": "Hooks - Named",
+    "description": "  Hooks are special steps that run before or after each scenario's steps.\n\n  Hooks can be given a name. Which is nice for reporting. Otherwise they work\n  exactly the same as regular hooks.",
+    "elements": [
+      {
+        "start_timestamp": "1970-01-01T00:00:00.001Z",
+        "line": 7,
+        "id": "hooks---named;with-a-named-before-and-after-hook",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "With a named before and after hook",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "When ",
+            "line": 8,
+            "match": {
+              "location": "samples/hooks-named/hooks-named.ts:7"
+            },
+            "name": "a step passes",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "samples/hooks-named/hooks-named.ts:3"
+            },
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "samples/hooks-named/hooks-named.ts:11"
+            },
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ]
+      }
+    ],
+    "tags": [ ]
+  }
+]

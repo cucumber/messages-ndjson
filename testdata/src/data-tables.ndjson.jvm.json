@@ -1,0 +1,76 @@
+[
+  {
+    "line": 1,
+    "uri": "samples/data-tables/data-tables.feature",
+    "id": "data-tables",
+    "keyword": "Feature",
+    "name": "Data Tables",
+    "description": "  Data Tables can be placed underneath a step and will be passed as the last\n  argument to the step definition.\n\n  They can be used to represent richer data structures, and can be transformed to other data-types.",
+    "elements": [
+      {
+        "start_timestamp": "1970-01-01T00:00:00.001Z",
+        "line": 7,
+        "id": "data-tables;transposed-table",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "transposed table",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "When ",
+            "line": 8,
+            "match": {
+              "location": "samples/data-tables/data-tables.ts:4"
+            },
+            "name": "the following table is transposed:",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "a",
+                  "b"
+                ]
+              },
+              {
+                "cells": [
+                  "1",
+                  "2"
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "Then ",
+            "line": 11,
+            "match": {
+              "location": "samples/data-tables/data-tables.ts:8"
+            },
+            "name": "it should be:",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "a",
+                  "1"
+                ]
+              },
+              {
+                "cells": [
+                  "b",
+                  "2"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "tags": [ ]
+  }
+]

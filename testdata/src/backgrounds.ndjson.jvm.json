@@ -1,0 +1,209 @@
+[
+  {
+    "line": 1,
+    "uri": "samples/backgrounds/backgrounds.feature",
+    "id": "backgrounds",
+    "keyword": "Feature",
+    "name": "Backgrounds",
+    "description": "  Though not recommended, Backgrounds can be used to share context steps between Scenarios. The Background steps\n  are prepended to the steps in each Scenario when they are compiled to Pickles. Only one Background at the Feature\n  level is supported.",
+    "elements": [
+      {
+        "line": 6,
+        "type": "background",
+        "keyword": "Background",
+        "name": "",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 7,
+            "match": {
+              "location": "samples/backgrounds/backgrounds.ts:3",
+              "arguments": [
+                {
+                  "val": "\"eggs\"",
+                  "offset": 13
+                }
+              ]
+            },
+            "name": "an order for \"eggs\"",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "And ",
+            "line": 8,
+            "match": {
+              "location": "samples/backgrounds/backgrounds.ts:3",
+              "arguments": [
+                {
+                  "val": "\"milk\"",
+                  "offset": 13
+                }
+              ]
+            },
+            "name": "an order for \"milk\"",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "And ",
+            "line": 9,
+            "match": {
+              "location": "samples/backgrounds/backgrounds.ts:3",
+              "arguments": [
+                {
+                  "val": "\"bread\"",
+                  "offset": 13
+                }
+              ]
+            },
+            "name": "an order for \"bread\"",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "1970-01-01T00:00:00.001Z",
+        "line": 11,
+        "id": "backgrounds;one-scenario",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "one scenario",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "When ",
+            "line": 12,
+            "match": {
+              "location": "samples/backgrounds/backgrounds.ts:7"
+            },
+            "name": "an action",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "Then ",
+            "line": 13,
+            "match": {
+              "location": "samples/backgrounds/backgrounds.ts:11"
+            },
+            "name": "an outcome",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "line": 6,
+        "type": "background",
+        "keyword": "Background",
+        "name": "",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 7,
+            "match": {
+              "location": "samples/backgrounds/backgrounds.ts:3",
+              "arguments": [
+                {
+                  "val": "\"eggs\"",
+                  "offset": 13
+                }
+              ]
+            },
+            "name": "an order for \"eggs\"",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "And ",
+            "line": 8,
+            "match": {
+              "location": "samples/backgrounds/backgrounds.ts:3",
+              "arguments": [
+                {
+                  "val": "\"milk\"",
+                  "offset": 13
+                }
+              ]
+            },
+            "name": "an order for \"milk\"",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "And ",
+            "line": 9,
+            "match": {
+              "location": "samples/backgrounds/backgrounds.ts:3",
+              "arguments": [
+                {
+                  "val": "\"bread\"",
+                  "offset": 13
+                }
+              ]
+            },
+            "name": "an order for \"bread\"",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "1970-01-01T00:00:00.013Z",
+        "line": 15,
+        "id": "backgrounds;another-scenario",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "another scenario",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "When ",
+            "line": 16,
+            "match": {
+              "location": "samples/backgrounds/backgrounds.ts:7"
+            },
+            "name": "an action",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "Then ",
+            "line": 17,
+            "match": {
+              "location": "samples/backgrounds/backgrounds.ts:11"
+            },
+            "name": "an outcome",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ]
+      }
+    ],
+    "tags": [ ]
+  }
+]

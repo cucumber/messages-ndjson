@@ -1,0 +1,296 @@
+[
+  {
+    "line": 1,
+    "uri": "samples/multiple-features/multiple-features-1.feature",
+    "id": "first-feature",
+    "keyword": "Feature",
+    "name": "First feature",
+    "description": "",
+    "elements": [
+      {
+        "start_timestamp": "1970-01-01T00:00:00.001Z",
+        "line": 3,
+        "id": "first-feature;first-scenario",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "First scenario",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 4,
+            "match": {
+              "location": "samples/multiple-features/multiple-features.ts:3",
+              "arguments": [
+                {
+                  "val": "\"eggs\"",
+                  "offset": 13
+                }
+              ]
+            },
+            "name": "an order for \"eggs\"",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "1970-01-01T00:00:00.005Z",
+        "line": 6,
+        "id": "first-feature;second-scenario",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "Second scenario",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 7,
+            "match": {
+              "location": "samples/multiple-features/multiple-features.ts:3",
+              "arguments": [
+                {
+                  "val": "\"milk\"",
+                  "offset": 13
+                }
+              ]
+            },
+            "name": "an order for \"milk\"",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "1970-01-01T00:00:00.009Z",
+        "line": 9,
+        "id": "first-feature;third-scenario",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "Third scenario",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 10,
+            "match": {
+              "location": "samples/multiple-features/multiple-features.ts:3",
+              "arguments": [
+                {
+                  "val": "\"bread\"",
+                  "offset": 13
+                }
+              ]
+            },
+            "name": "an order for \"bread\"",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ]
+      }
+    ],
+    "tags": [ ]
+  },
+  {
+    "line": 1,
+    "uri": "samples/multiple-features/multiple-features-2.feature",
+    "id": "second-feature",
+    "keyword": "Feature",
+    "name": "Second feature",
+    "description": "",
+    "elements": [
+      {
+        "start_timestamp": "1970-01-01T00:00:00.013Z",
+        "line": 3,
+        "id": "second-feature;first-scenario",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "First scenario",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 4,
+            "match": {
+              "location": "samples/multiple-features/multiple-features.ts:3",
+              "arguments": [
+                {
+                  "val": "\"batteries\"",
+                  "offset": 13
+                }
+              ]
+            },
+            "name": "an order for \"batteries\"",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "1970-01-01T00:00:00.017Z",
+        "line": 6,
+        "id": "second-feature;second-scenario",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "Second scenario",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 7,
+            "match": {
+              "location": "samples/multiple-features/multiple-features.ts:3",
+              "arguments": [
+                {
+                  "val": "\"light bulbs\"",
+                  "offset": 13
+                }
+              ]
+            },
+            "name": "an order for \"light bulbs\"",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "1970-01-01T00:00:00.021Z",
+        "line": 9,
+        "id": "second-feature;third-scenario",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "Third scenario",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 10,
+            "match": {
+              "location": "samples/multiple-features/multiple-features.ts:3",
+              "arguments": [
+                {
+                  "val": "\"fuses\"",
+                  "offset": 13
+                }
+              ]
+            },
+            "name": "an order for \"fuses\"",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ]
+      }
+    ],
+    "tags": [ ]
+  },
+  {
+    "line": 1,
+    "uri": "samples/multiple-features/multiple-features-3.feature",
+    "id": "third-feature",
+    "keyword": "Feature",
+    "name": "Third feature",
+    "description": "",
+    "elements": [
+      {
+        "start_timestamp": "1970-01-01T00:00:00.025Z",
+        "line": 3,
+        "id": "third-feature;first-scenario",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "First scenario",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 4,
+            "match": {
+              "location": "samples/multiple-features/multiple-features.ts:3",
+              "arguments": [
+                {
+                  "val": "\"pencils\"",
+                  "offset": 13
+                }
+              ]
+            },
+            "name": "an order for \"pencils\"",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "1970-01-01T00:00:00.029Z",
+        "line": 6,
+        "id": "third-feature;second-scenario",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "Second scenario",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 7,
+            "match": {
+              "location": "samples/multiple-features/multiple-features.ts:3",
+              "arguments": [
+                {
+                  "val": "\"rulers\"",
+                  "offset": 13
+                }
+              ]
+            },
+            "name": "an order for \"rulers\"",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "1970-01-01T00:00:00.033Z",
+        "line": 9,
+        "id": "third-feature;third-scenario",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "name": "Third scenario",
+        "description": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 10,
+            "match": {
+              "location": "samples/multiple-features/multiple-features.ts:3",
+              "arguments": [
+                {
+                  "val": "\"paperclips\"",
+                  "offset": 13
+                }
+              ]
+            },
+            "name": "an order for \"paperclips\"",
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            }
+          }
+        ]
+      }
+    ],
+    "tags": [ ]
+  }
+]
