@@ -1,6 +1,6 @@
 ⚠️ This is an internal package; you don't need to install it in order to use the JSON Formatter.
 
-[![Maven Central](https://img.shields.io/maven-central/v/io.cucumber/messages-json.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:io.cucumber%20AND%20a:messages-json)
+[![Maven Central](https://img.shields.io/maven-central/v/io.cucumber/messages-ndjson.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:io.cucumber%20AND%20a:messages-ndjson)
 
 # Messages JSON
 
