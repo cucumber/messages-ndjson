@@ -1,6 +1,7 @@
 package io.cucumber.messages.ndjson;
 
 import io.cucumber.messages.NdjsonToMessageIterable;
+import io.cucumber.messages.NdjsonToMessageReader;
 import io.cucumber.messages.types.Envelope;
 
 import java.io.IOException;
@@ -10,7 +11,7 @@ import static java.util.Objects.requireNonNull;
 /**
  * Deserializes a JSON string to a message.
  */
-public final class Deserializer implements NdjsonToMessageIterable.Deserializer {
+public final class Deserializer implements NdjsonToMessageIterable.Deserializer, NdjsonToMessageReader.Deserializer {
 
     /**
      * Deserialize a JSON string to message.
