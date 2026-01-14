@@ -18,6 +18,7 @@
     <properties>
         <project.Automatic-Module-Name>io.cucumber.messagesn.ndjson</project.Automatic-Module-Name>
         <project.build.outputTimestamp>1768256719</project.build.outputTimestamp>
+         <osgi.import-package>!com.fasterxml.jackson.*, *</osgi.import-package>
     </properties>
 
     <scm>
