@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>io.cucumber</groupId>
         <artifactId>cucumber-parent</artifactId>
-        <version>4.6.0</version>
+        <version>5.0.0</version>
     </parent>
 
     <artifactId>messages-ndjson</artifactId>
-    <version>0.3.1-SNAPSHOT</version>
+    <version>0.4.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Messages NDJSON</name>
     <description>Serialize and deserialize Cucumber Messages to and from JSON</description>
@@ -18,7 +19,8 @@
     <properties>
         <project.Automatic-Module-Name>io.cucumber.messagesn.ndjson</project.Automatic-Module-Name>
         <project.build.outputTimestamp>1768399435</project.build.outputTimestamp>
-         <osgi.import-package>!com.fasterxml.jackson.*, *</osgi.import-package>
+        <osgi.bundle-symbolic-name>io.cucumber.messagesn.ndjson</osgi.bundle-symbolic-name>
+        <osgi.import-package>!com.fasterxml.jackson.*, *</osgi.import-package>
     </properties>
 
     <scm>
@@ -60,7 +62,7 @@
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>messages</artifactId>
-            <version>[18.0.0,32.0.0)</version>
+            <version>[32.0.0,33.0.0)</version>
         </dependency>
 
         <dependency>
@@ -105,7 +107,7 @@
         </dependency>
 
     </dependencies>
-    
+
     <build>
         <plugins>
             <plugin>
@@ -117,6 +119,13 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
                     <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                        </manifest>
+                        <manifestEntries>
+                            <Automatic-Module-Name>${project.Automatic-Module-Name}</Automatic-Module-Name>
+                        </manifestEntries>
                         <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
                     </archive>
                 </configuration>
@@ -132,8 +141,10 @@
                         </goals>
                         <configuration>
                             <transformers>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer"/>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheNoticeResourceTransformer">
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer"/>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ApacheNoticeResourceTransformer">
                                     <addHeader>false</addHeader>
                                 </transformer>
                             </transformers>
