@@ -1,7 +1,7 @@
 package io.cucumber.messages.ndjson;
 
 import io.cucumber.messages.MessageToNdjsonWriter;
-import io.cucumber.messages.NdjsonToMessageIterable;
+import io.cucumber.messages.NdjsonToMessageReader;
 import io.cucumber.messages.types.Envelope;
 import org.junit.jupiter.api.io.TempDir;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -63,11 +63,9 @@ public class AcceptanceTest {
     }
 
     private static List<Envelope> readMessages(Path testCase) throws IOException {
-        List<Envelope> envelopes = new ArrayList<>();
-        try (NdjsonToMessageIterable reader = new NdjsonToMessageIterable(newInputStream(testCase), deserializer)) {
-            reader.iterator().forEachRemaining(envelopes::add);
+        try (var reader = new NdjsonToMessageReader(newInputStream(testCase), deserializer)) {
+            return reader.lines().toList();
         }
-        return envelopes;
     }
 
     static class TestCase {

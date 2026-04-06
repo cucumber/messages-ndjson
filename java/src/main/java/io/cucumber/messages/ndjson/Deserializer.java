@@ -11,6 +11,7 @@ import static java.util.Objects.requireNonNull;
 /**
  * Deserializes a JSON string to a message.
  */
+@SuppressWarnings("deprecation")
 public final class Deserializer implements NdjsonToMessageIterable.Deserializer, NdjsonToMessageReader.Deserializer {
 
     /**
