@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 - Update dependency tools.jackson:jackson-bom to v3.1.2
+- Add `module-info.java`
+- Use JSpecify for nullability
 
 ## [0.4.1] - 2026-03-02
 ### Changed
