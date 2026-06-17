@@ -1,3 +1,6 @@
+import org.jspecify.annotations.NullMarked;
+
+@NullMarked
 module io.cucumber.messages.ndjson.test {
     requires io.cucumber.messages.ndjson;
     requires transitive io.cucumber.messages;

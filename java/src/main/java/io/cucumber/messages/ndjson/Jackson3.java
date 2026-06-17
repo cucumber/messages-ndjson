@@ -17,4 +17,9 @@ public final class Jackson3 extends ConditionalJson {
     protected <T> Serializer<T> createSerializer(Class<T> type) {
         return new Jackson3JsonMapper<>(type);
     }
+
+    @Override
+    public String name() {
+        return EXPECTED_CLASS;
+    }
 }

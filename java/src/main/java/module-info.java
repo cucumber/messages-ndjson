@@ -1,6 +1,8 @@
 import io.cucumber.messages.ndjson.Jackson3;
 import io.cucumber.messages.ndjson.Json;
+import org.jspecify.annotations.NullMarked;
 
+@NullMarked
 module io.cucumber.messages.ndjson {
     requires org.jspecify;
     requires io.cucumber.messages;

@@ -3,11 +3,10 @@ package io.cucumber.messages.ndjson.test;
 import io.cucumber.messages.MessageToNdjsonWriter;
 import io.cucumber.messages.NdjsonToMessageReader;
 import io.cucumber.messages.ndjson.Deserializer;
-import io.cucumber.messages.ndjson.Jackson3;
+import io.cucumber.messages.ndjson.Json;
 import io.cucumber.messages.ndjson.Serializer;
 import io.cucumber.messages.types.Envelope;
 import org.junit.jupiter.api.io.TempDir;
-import org.junit.jupiter.params.Parameter;
 import org.junit.jupiter.params.ParameterizedClass;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -19,6 +18,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ServiceLoader;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -27,7 +27,7 @@ import static java.nio.file.Files.newOutputStream;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @ParameterizedClass
-@MethodSource("frameworks")
+@MethodSource("services")
 public class AcceptanceTest {
 
     private final Deserializer<Envelope> deserializer;
@@ -38,17 +38,16 @@ public class AcceptanceTest {
         this.serializer = serializer;
     }
 
-    static List<Arguments> frameworks(){
-        Jackson3 jackson3 = new Jackson3();
-        return List.of(
-                Arguments.arguments(
-                        jackson3.deserializer(Envelope.class).get(),
-                        jackson3.serializer(Envelope.class).get()
-                )
-        );
+    static Stream<Arguments> services() {
+        return ServiceLoader.load(Json.class).stream()
+                .map(ServiceLoader.Provider::get)
+                .map(jsonProvider -> Arguments.argumentSet(
+                        jsonProvider.name(),
+                        jsonProvider.deserializer(Envelope.class).get(),
+                           jsonProvider.serializer(Envelope.class).get()));
     }
 
-    static List<TestCase> acceptance() throws IOException {
+    static List<TestCase> testCases() throws IOException {
         List<Path> sources = getSources();
         List<TestCase> testCases = new ArrayList<>();
         sources.forEach(path -> testCases.add(new TestCase(path)));
@@ -67,7 +66,7 @@ public class AcceptanceTest {
     Path out;
 
     @ParameterizedTest
-    @MethodSource("acceptance")
+    @MethodSource("testCases")
     void test(TestCase testCase) throws IOException {
         List<Envelope> expectedMessages = readMessages(testCase.source);
         // Tests a object -> file -> object round trip.

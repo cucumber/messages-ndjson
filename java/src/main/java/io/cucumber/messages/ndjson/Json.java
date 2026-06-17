@@ -11,4 +11,6 @@ public interface Json {
     default <T> Optional<Serializer<T>> serializer(Class<T> type) {
         return Optional.empty();
     }
+
+    String name();
 }
