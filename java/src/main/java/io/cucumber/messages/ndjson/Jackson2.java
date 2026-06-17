@@ -2,24 +2,7 @@ package io.cucumber.messages.ndjson;
 
 import java.util.List;
 
-public final class Jackson2 extends ConditionalJson {
-
-    private static final List<Dependency> DEPENDENCIES = List.of(
-            new Dependency(
-                    "com.fasterxml.jackson.databind.json.JsonMapper",
-                    "com.fasterxml.jackson.core",
-                    "jackson-databind"
-            ),
-            new Dependency(
-                    "com.fasterxml.jackson.datatype.jdk8.Jdk8Module",
-                    "com.fasterxml.jackson.datatype",
-                    "jackson-datatype-jdk8"
-            )
-    );
-
-    public Jackson2(){
-        /* no-op */
-    }
+public final class Jackson2 extends DependencyAwareJsonMapperFactory {
 
     @Override
     protected <T> Deserializer<T> createDeserializer(Class<T> type) {
@@ -38,6 +21,17 @@ public final class Jackson2 extends ConditionalJson {
 
     @Override
     public List<Dependency> dependencies() {
-        return DEPENDENCIES;
+        return List.of(
+                new Dependency(
+                        "com.fasterxml.jackson.databind.json.JsonMapper",
+                        "com.fasterxml.jackson.core",
+                        "jackson-databind"
+                ),
+                new Dependency(
+                        "com.fasterxml.jackson.datatype.jdk8.Jdk8Module",
+                        "com.fasterxml.jackson.datatype",
+                        "jackson-datatype-jdk8"
+                )
+        );
     }
 }

@@ -20,8 +20,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 class Jackson3Test {
 
     private final Jackson3 jackson3 = new Jackson3();
-    private final Deserializer<Envelope> deserializer = jackson3.deserializer(Envelope.class).get();
-    private final Serializer<Envelope> serializer = jackson3.serializer(Envelope.class).get();
+    private final Deserializer<Envelope> deserializer = jackson3.deserializer(Envelope.class);
+    private final Serializer<Envelope> serializer = jackson3.serializer(Envelope.class);
 
     @Test
     void can_deserialize_enum() {

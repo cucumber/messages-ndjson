@@ -2,18 +2,7 @@ package io.cucumber.messages.ndjson;
 
 import java.util.List;
 
-public final class Jackson3 extends ConditionalJson {
-
-    private static final List<Dependency> DEPENDENCIES = List.of(
-            new Dependency(
-                    "tools.jackson.databind.json.JsonMapper",
-                    "tools.jackson.core",
-                    "jackson-databind"
-            )
-    );
-    public Jackson3() {
-        /* no-op */
-    }
+public final class Jackson3 extends DependencyAwareJsonMapperFactory {
 
     @Override
     protected <T> Deserializer<T> createDeserializer(Class<T> type) {
@@ -32,6 +21,12 @@ public final class Jackson3 extends ConditionalJson {
 
     @Override
     public List<Dependency> dependencies() {
-        return DEPENDENCIES;
+        return List.of(
+                new Dependency(
+                        "tools.jackson.databind.json.JsonMapper",
+                        "tools.jackson.core",
+                        "jackson-databind"
+                )
+        );
     }
 }
