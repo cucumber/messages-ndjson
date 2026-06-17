@@ -1,18 +1,14 @@
 package io.cucumber.messages.ndjson;
 
-import io.cucumber.messages.NdjsonToMessageIterable;
 import io.cucumber.messages.NdjsonToMessageReader;
 import io.cucumber.messages.types.Envelope;
-
-import java.io.IOException;
 
 import static java.util.Objects.requireNonNull;
 
 /**
  * Deserializes a JSON string to a message.
  */
-@SuppressWarnings("deprecation")
-public final class Deserializer implements NdjsonToMessageIterable.Deserializer, NdjsonToMessageReader.Deserializer {
+public final class Deserializer implements NdjsonToMessageReader.Deserializer {
 
     /**
      * Deserialize a JSON string to message.
@@ -26,10 +22,9 @@ public final class Deserializer implements NdjsonToMessageIterable.Deserializer,
      *
      * @param json to deserialize
      * @return a deserialized {@link Envelope} or null
-     * @throws IOException if anything goes wrong
      */
     @Override
-    public Envelope readValue(String json) throws IOException {
+    public Envelope readValue(String json) {
         requireNonNull(json);
         return Jackson.OBJECT_MAPPER.readValue(json, Envelope.class);
     }

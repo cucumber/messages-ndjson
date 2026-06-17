@@ -1,35 +1,29 @@
 package io.cucumber.messages.ndjson;
 
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.databind.cfg.ConstructorDetector;
-import com.fasterxml.jackson.databind.introspect.AnnotatedMember;
-import com.fasterxml.jackson.databind.introspect.NopAnnotationIntrospector;
-import com.fasterxml.jackson.databind.json.JsonMapper;
-import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import io.cucumber.messages.Property;
-import org.jspecify.annotations.Nullable;
+import tools.jackson.core.StreamWriteFeature;
+import tools.jackson.core.Version;
+import tools.jackson.databind.AnnotationIntrospector;
+import tools.jackson.databind.PropertyName;
+import tools.jackson.databind.cfg.ConstructorDetector;
+import tools.jackson.databind.cfg.MapperConfig;
+import tools.jackson.databind.introspect.Annotated;
+import tools.jackson.databind.json.JsonMapper;
+import tools.jackson.databind.module.SimpleModule;
 
 import java.io.Serial;
 
-import static com.fasterxml.jackson.annotation.JsonInclude.Value;
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_ABSENT;
 
 final class Jackson {
     static final JsonMapper OBJECT_MAPPER = JsonMapper.builder()
-            .addModule(new Jdk8Module())
             .addModule(new CucumberParameterNamesModule())
-            .defaultPropertyInclusion(Value.construct(NON_ABSENT, NON_ABSENT))
+            .changeDefaultPropertyInclusion(value -> value
+                    .withContentInclusion(NON_ABSENT)
+                    .withValueInclusion(NON_ABSENT)
+            )
             .constructorDetector(ConstructorDetector.USE_PROPERTIES_BASED)
-            .enable(SerializationFeature.WRITE_ENUMS_USING_TO_STRING)
-            .enable(DeserializationFeature.READ_ENUMS_USING_TO_STRING)
-            .enable(DeserializationFeature.USE_LONG_FOR_INTS)
-            .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
-            .disable(JsonGenerator.Feature.AUTO_CLOSE_TARGET)
-            .disable(MapperFeature.CAN_OVERRIDE_ACCESS_MODIFIERS)
+            .disable(StreamWriteFeature.AUTO_CLOSE_TARGET)
             .build();
 
     private Jackson() {
@@ -40,7 +34,7 @@ final class Jackson {
         @Serial
         private static final long serialVersionUID = 1L;
 
-        CucumberParameterNamesModule(){
+        CucumberParameterNamesModule() {
             super("CucumberParameterNamesModule");
         }
 
@@ -60,19 +54,23 @@ final class Jackson {
             return this == o;
         }
 
-        static final class PropertyNameAnnotationIntrospector extends NopAnnotationIntrospector {
+        static final class PropertyNameAnnotationIntrospector extends AnnotationIntrospector {
             @Serial
             private static final long serialVersionUID = 1L;
 
             @Override
-            public @Nullable String findImplicitPropertyName(AnnotatedMember m) {
-                Property annotation = m.getAnnotation(Property.class);
+            public PropertyName findNameForDeserialization(MapperConfig<?> config, Annotated a) {
+                Property annotation = a.getAnnotation(Property.class);
                 if (annotation == null) {
-                    return null;
+                    return PropertyName.USE_DEFAULT;
                 }
-                return annotation.value();
+                return PropertyName.construct(annotation.value());
             }
 
+            @Override
+            public Version version() {
+                return Version.unknownVersion();
+            }
         }
     }
 }

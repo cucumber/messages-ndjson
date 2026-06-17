@@ -3,7 +3,6 @@ package io.cucumber.messages.ndjson;
 import io.cucumber.messages.MessageToNdjsonWriter;
 import io.cucumber.messages.types.Envelope;
 
-import java.io.IOException;
 import java.io.Writer;
 
 import static java.util.Objects.requireNonNull;
@@ -27,10 +26,9 @@ public final class Serializer implements MessageToNdjsonWriter.Serializer {
      *
      * @param writer to write to
      * @param value  to serialize
-     * @throws IOException if anything goes wrong
      */
     @Override
-    public void writeValue(Writer writer, Envelope value) throws IOException {
+    public void writeValue(Writer writer, Envelope value) {
         requireNonNull(writer);
         requireNonNull(value);
         Jackson.OBJECT_MAPPER.writeValue(writer, value);
