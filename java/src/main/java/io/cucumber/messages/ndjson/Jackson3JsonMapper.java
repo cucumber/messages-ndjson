@@ -12,22 +12,37 @@ import tools.jackson.databind.json.JsonMapper;
 import tools.jackson.databind.module.SimpleModule;
 
 import java.io.Serial;
+import java.io.Writer;
 
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_ABSENT;
 
-final class Jackson {
-    static final JsonMapper OBJECT_MAPPER = JsonMapper.builder()
-            .addModule(new CucumberParameterNamesModule())
-            .changeDefaultPropertyInclusion(value -> value
-                    .withContentInclusion(NON_ABSENT)
-                    .withValueInclusion(NON_ABSENT)
-            )
-            .constructorDetector(ConstructorDetector.USE_PROPERTIES_BASED)
-            .disable(StreamWriteFeature.AUTO_CLOSE_TARGET)
-            .build();
+final class Jackson3JsonMapper<T> implements Serializer<T>, Deserializer<T> {
 
-    private Jackson() {
-        /* no-op */
+    private final Class<T> type;
+    private final JsonMapper delegate;
+
+    Jackson3JsonMapper(Class<T> type) {
+        this.type = type;
+
+        this.delegate = JsonMapper.builder()
+                .addModule(new Jackson3JsonMapper.CucumberParameterNamesModule())
+                .changeDefaultPropertyInclusion(value -> value
+                        .withContentInclusion(NON_ABSENT)
+                        .withValueInclusion(NON_ABSENT)
+                )
+                .constructorDetector(ConstructorDetector.USE_PROPERTIES_BASED)
+                .disable(StreamWriteFeature.AUTO_CLOSE_TARGET)
+                .build();
+    }
+
+    @Override
+    public T readValue(String json) {
+        return delegate.readValue(json, type);
+    }
+
+    @Override
+    public void writeValue(Writer writer, T value) {
+        delegate.writeValue(writer, value);
     }
 
     static final class CucumberParameterNamesModule extends SimpleModule {

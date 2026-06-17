@@ -1,8 +1,12 @@
+import io.cucumber.messages.ndjson.Jackson3;
+import io.cucumber.messages.ndjson.Json;
+
 module io.cucumber.messages.ndjson {
     requires org.jspecify;
-    requires tools.jackson.databind;
     requires io.cucumber.messages;
 
-    exports io.cucumber.messages.ndjson;
+    requires static tools.jackson.databind;
 
+    exports io.cucumber.messages.ndjson;
+    provides Json with Jackson3;
 }

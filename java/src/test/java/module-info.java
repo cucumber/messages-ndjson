@@ -1,0 +1,15 @@
+module io.cucumber.messages.ndjson.test {
+    requires io.cucumber.messages.ndjson;
+    requires transitive io.cucumber.messages;
+
+    requires tools.jackson.databind;
+    requires org.junit.jupiter.api;
+    requires org.junit.jupiter.params;
+    requires org.assertj.core;
+    requires jsonassert;
+
+
+    uses io.cucumber.messages.ndjson.Json;
+
+    opens io.cucumber.messages.ndjson.test;
+}
