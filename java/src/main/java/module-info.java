@@ -1,3 +1,4 @@
+import io.cucumber.messages.ndjson.Jackson2;
 import io.cucumber.messages.ndjson.Jackson3;
 import io.cucumber.messages.ndjson.Json;
 import org.jspecify.annotations.NullMarked;
@@ -8,7 +9,10 @@ module io.cucumber.messages.ndjson {
     requires io.cucumber.messages;
 
     requires static tools.jackson.databind;
+    requires static com.fasterxml.jackson.databind;
+    requires static com.fasterxml.jackson.datatype.jdk8;
+    requires static com.fasterxml.jackson.core;
 
     exports io.cucumber.messages.ndjson;
-    provides Json with Jackson3;
+    provides Json with Jackson2, Jackson3;
 }
