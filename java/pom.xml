@@ -17,10 +17,8 @@
     <url>https://github.com/cucumber/messages-ndjson</url>
 
     <properties>
-        <project.Automatic-Module-Name>io.cucumber.messagesn.ndjson</project.Automatic-Module-Name>
         <project.build.outputTimestamp>1772489101</project.build.outputTimestamp>
         <osgi.bundle-symbolic-name>io.cucumber.messagesn.ndjson</osgi.bundle-symbolic-name>
-        <osgi.import-package>!com.fasterxml.jackson.*, *</osgi.import-package>
     </properties>
 
     <scm>
