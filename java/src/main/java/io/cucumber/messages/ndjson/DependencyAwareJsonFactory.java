@@ -9,7 +9,7 @@ abstract class DependencyAwareJsonFactory implements JsonFactory {
 
     @Override
     public <T> Deserializer<T> deserializer(Class<T> type) {
-        if (dependenciesAvailable()) {
+        if (enabled()) {
             return createDeserializer(type);
         }
         throw createMissingDependencies("deserializer");
@@ -19,7 +19,7 @@ abstract class DependencyAwareJsonFactory implements JsonFactory {
 
     @Override
     public <T> Serializer<T> serializer(Class<T> type) {
-        if (dependenciesAvailable()) {
+        if (enabled()) {
             return createSerializer(type);
         }
         throw createMissingDependencies("serializer");
@@ -28,7 +28,7 @@ abstract class DependencyAwareJsonFactory implements JsonFactory {
     abstract protected <T> Serializer<T> createSerializer(Class<T> type);
 
     @Override
-    public boolean dependenciesAvailable() {
+    public boolean enabled() {
         if (!doneOnce) {
             synchronized (this) {
                 if (!doneOnce) {

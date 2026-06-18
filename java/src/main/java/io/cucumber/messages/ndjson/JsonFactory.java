@@ -12,9 +12,10 @@ public interface JsonFactory {
 
     List<Dependency> dependencies();
 
-    boolean dependenciesAvailable();
+    boolean enabled();
 
     record Dependency(String className, String groupId, String artifactId) {
 
     }
+
 }

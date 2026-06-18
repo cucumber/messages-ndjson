@@ -53,7 +53,7 @@ class Jackson3SupplierTest {
         return load.stream()
                 .map(ServiceLoader.Provider::get)
                 .filter(Jackson3.class::isInstance)
-                .filter(JsonFactory::dependenciesAvailable)
+                .filter(JsonFactory::enabled)
                 .map(json -> json.deserializer(Envelope.class))
                 .findFirst();
     }
