@@ -28,7 +28,6 @@ final class Jackson2JsonMapper<T> implements Serializer<T>, Deserializer<T> {
 
     Jackson2JsonMapper(Class<T> type) {
         this.type = type;
-
         this.delegate = JsonMapper.builder()
                 .addModule(new Jdk8Module())
                 .addModule(new CucumberParameterNamesModule())

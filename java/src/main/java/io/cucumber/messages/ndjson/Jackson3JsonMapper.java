@@ -23,7 +23,6 @@ final class Jackson3JsonMapper<T> implements Serializer<T>, Deserializer<T> {
 
     Jackson3JsonMapper(Class<T> type) {
         this.type = type;
-
         this.delegate = JsonMapper.builder()
                 .addModule(new Jackson3JsonMapper.CucumberParameterNamesModule())
                 .changeDefaultPropertyInclusion(value -> value
