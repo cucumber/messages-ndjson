@@ -2,7 +2,7 @@ package io.cucumber.messages.ndjson.test;
 
 import io.cucumber.messages.ndjson.Deserializer;
 import io.cucumber.messages.ndjson.Jackson3;
-import io.cucumber.messages.ndjson.JsonMapperFactory;
+import io.cucumber.messages.ndjson.JsonFactory;
 import io.cucumber.messages.ndjson.Serializer;
 import io.cucumber.messages.types.Envelope;
 import org.junit.jupiter.api.Test;
@@ -21,7 +21,7 @@ class Jackson3SupplierTest {
         assertThat(loadDeserializer())
                 .map(Object::getClass)
                 .map(Class::getName)
-                .contains("io.cucumber.messages.ndjson.Jackson3JsonMapper");
+                .contains("io.cucumber.messages.ndjson.Jackson3Json");
     }
 
 
@@ -30,7 +30,7 @@ class Jackson3SupplierTest {
         assertThat(loadSerializer())
                 .map(Object::getClass)
                 .map(Class::getName)
-                .contains("io.cucumber.messages.ndjson.Jackson3JsonMapper");
+                .contains("io.cucumber.messages.ndjson.Jackson3Json");
     }
 
     @Test
@@ -40,7 +40,7 @@ class Jackson3SupplierTest {
     }
 
     private static Optional<Serializer<Envelope>> loadDeserializer() {
-        var load = ServiceLoader.load(JsonMapperFactory.class);
+        var load = ServiceLoader.load(JsonFactory.class);
         return load.stream()
                 .map(ServiceLoader.Provider::get)
                 .filter(Jackson3.class::isInstance)
@@ -49,11 +49,11 @@ class Jackson3SupplierTest {
     }
 
     private static Optional<Deserializer<Envelope>> loadSerializer() {
-        var load = ServiceLoader.load(JsonMapperFactory.class);
+        var load = ServiceLoader.load(JsonFactory.class);
         return load.stream()
                 .map(ServiceLoader.Provider::get)
                 .filter(Jackson3.class::isInstance)
-                .filter(JsonMapperFactory::dependenciesAvailable)
+                .filter(JsonFactory::dependenciesAvailable)
                 .map(json -> json.deserializer(Envelope.class))
                 .findFirst();
     }

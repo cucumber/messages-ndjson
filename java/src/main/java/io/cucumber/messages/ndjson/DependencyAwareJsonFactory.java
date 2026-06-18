@@ -2,7 +2,7 @@ package io.cucumber.messages.ndjson;
 
 import java.util.List;
 
-abstract class DependencyAwareJsonMapperFactory implements JsonMapperFactory {
+abstract class DependencyAwareJsonFactory implements JsonFactory {
 
     private volatile boolean doneOnce;
     private boolean available;

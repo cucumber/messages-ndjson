@@ -3,7 +3,7 @@ package io.cucumber.messages.ndjson.test;
 import io.cucumber.messages.MessageToNdjsonWriter;
 import io.cucumber.messages.NdjsonToMessageReader;
 import io.cucumber.messages.ndjson.Deserializer;
-import io.cucumber.messages.ndjson.JsonMapperFactory;
+import io.cucumber.messages.ndjson.JsonFactory;
 import io.cucumber.messages.ndjson.Serializer;
 import io.cucumber.messages.types.Envelope;
 import org.junit.jupiter.api.io.TempDir;
@@ -39,7 +39,7 @@ public class AcceptanceTest {
     }
 
     static Stream<Arguments> services() {
-        return ServiceLoader.load(JsonMapperFactory.class).stream()
+        return ServiceLoader.load(JsonFactory.class).stream()
                 .map(ServiceLoader.Provider::get)
                 .map(jsonProvider -> Arguments.argumentSet(
                         jsonProvider.name(),

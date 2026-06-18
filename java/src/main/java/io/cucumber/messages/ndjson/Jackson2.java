@@ -2,16 +2,16 @@ package io.cucumber.messages.ndjson;
 
 import java.util.List;
 
-public final class Jackson2 extends DependencyAwareJsonMapperFactory {
+public final class Jackson2 extends DependencyAwareJsonFactory {
 
     @Override
     protected <T> Deserializer<T> createDeserializer(Class<T> type) {
-        return new Jackson2JsonMapper<>(type);
+        return new Jackson2Json<>(type);
     }
 
     @Override
     protected <T> Serializer<T> createSerializer(Class<T> type) {
-        return new Jackson2JsonMapper<>(type);
+        return new Jackson2Json<>(type);
     }
 
     @Override

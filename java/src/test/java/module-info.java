@@ -1,4 +1,4 @@
-import io.cucumber.messages.ndjson.JsonMapperFactory;
+import io.cucumber.messages.ndjson.JsonFactory;
 import org.jspecify.annotations.NullMarked;
 
 @NullMarked
@@ -12,7 +12,7 @@ module io.cucumber.messages.ndjson.test {
     requires org.assertj.core;
     requires jsonassert;
 
-    uses JsonMapperFactory;
+    uses JsonFactory;
 
     opens io.cucumber.messages.ndjson.test;
 }

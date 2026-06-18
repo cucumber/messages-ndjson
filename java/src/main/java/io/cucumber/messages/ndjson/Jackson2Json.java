@@ -21,12 +21,12 @@ import java.io.Writer;
 
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_ABSENT;
 
-final class Jackson2JsonMapper<T> implements Serializer<T>, Deserializer<T> {
+final class Jackson2Json<T> implements Serializer<T>, Deserializer<T> {
 
     private final Class<T> type;
     private final JsonMapper delegate;
 
-    Jackson2JsonMapper(Class<T> type) {
+    Jackson2Json(Class<T> type) {
         this.type = type;
         this.delegate = JsonMapper.builder()
                 .addModule(new Jdk8Module())

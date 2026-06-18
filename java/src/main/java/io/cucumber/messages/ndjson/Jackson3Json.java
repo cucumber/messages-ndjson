@@ -16,15 +16,15 @@ import java.io.Writer;
 
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_ABSENT;
 
-final class Jackson3JsonMapper<T> implements Serializer<T>, Deserializer<T> {
+final class Jackson3Json<T> implements Serializer<T>, Deserializer<T> {
 
     private final Class<T> type;
     private final JsonMapper delegate;
 
-    Jackson3JsonMapper(Class<T> type) {
+    Jackson3Json(Class<T> type) {
         this.type = type;
         this.delegate = JsonMapper.builder()
-                .addModule(new Jackson3JsonMapper.CucumberParameterNamesModule())
+                .addModule(new Jackson3Json.CucumberParameterNamesModule())
                 .changeDefaultPropertyInclusion(value -> value
                         .withContentInclusion(NON_ABSENT)
                         .withValueInclusion(NON_ABSENT)

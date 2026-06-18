@@ -2,7 +2,7 @@ package io.cucumber.messages.ndjson;
 
 import java.util.List;
 
-public interface JsonMapperFactory {
+public interface JsonFactory {
 
     <T> Deserializer<T> deserializer(Class<T> type);
 
