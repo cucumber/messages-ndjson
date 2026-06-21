@@ -2,7 +2,7 @@ package io.cucumber.messages.ndjson;
 
 import java.util.List;
 
-abstract class DependencyAwareJsonFactory implements JsonFactory {
+abstract class AbstractJsonFactory implements JsonFactory {
 
     private volatile boolean doneOnce;
     private boolean available;
@@ -28,7 +28,7 @@ abstract class DependencyAwareJsonFactory implements JsonFactory {
     abstract protected <T> Serializer<T> createSerializer(Class<T> type);
 
     @Override
-    public boolean enabled() {
+    public final boolean enabled() {
         if (!doneOnce) {
             synchronized (this) {
                 if (!doneOnce) {
@@ -53,6 +53,12 @@ abstract class DependencyAwareJsonFactory implements JsonFactory {
 
     private RuntimeException createMissingDependencies(String what) {
         return new RuntimeException("Could not create %s. Not all required dependencies are available.".formatted(what));
+    }
+
+    abstract List<Dependency> dependencies();
+
+    record Dependency(String className, String groupId, String artifactId) {
+
     }
 
 }

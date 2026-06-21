@@ -2,7 +2,7 @@ package io.cucumber.messages.ndjson;
 
 import java.util.List;
 
-public final class Jackson2 extends DependencyAwareJsonFactory {
+public final class Jackson2 extends AbstractJsonFactory {
 
     @Override
     protected <T> Deserializer<T> createDeserializer(Class<T> type) {
@@ -15,12 +15,7 @@ public final class Jackson2 extends DependencyAwareJsonFactory {
     }
 
     @Override
-    public String name() {
-        return "Jackson2";
-    }
-
-    @Override
-    public List<Dependency> dependencies() {
+    List<Dependency> dependencies() {
         return List.of(
                 new Dependency(
                         "com.fasterxml.jackson.databind.json.JsonMapper",

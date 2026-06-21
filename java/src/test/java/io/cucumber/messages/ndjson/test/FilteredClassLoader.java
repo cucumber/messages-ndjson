@@ -1,6 +1,6 @@
 package io.cucumber.messages.ndjson.test;
 
-class FilteredClassLoader extends ClassLoader {
+final class FilteredClassLoader extends ClassLoader {
     private final String prefix;
 
     FilteredClassLoader(String prefix) {

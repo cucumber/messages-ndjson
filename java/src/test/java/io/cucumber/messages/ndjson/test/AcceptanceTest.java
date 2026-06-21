@@ -28,7 +28,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @ParameterizedClass
 @MethodSource("services")
-public class AcceptanceTest {
+final class AcceptanceTest {
 
     private final Deserializer<Envelope> deserializer;
     private final Serializer<Envelope> serializer;
@@ -42,7 +42,7 @@ public class AcceptanceTest {
         return ServiceLoader.load(JsonFactory.class).stream()
                 .map(ServiceLoader.Provider::get)
                 .map(jsonProvider -> Arguments.argumentSet(
-                        jsonProvider.name(),
+                        jsonProvider.getClass().getSimpleName(),
                         jsonProvider.deserializer(Envelope.class),
                            jsonProvider.serializer(Envelope.class)));
     }

@@ -5,6 +5,7 @@ import org.jspecify.annotations.NullMarked;
 
 @NullMarked
 module io.cucumber.messages.ndjson {
+    uses JsonFactory;
     requires org.jspecify;
     requires io.cucumber.messages;
 
