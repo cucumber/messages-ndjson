@@ -3,7 +3,6 @@ package io.cucumber.messages.ndjson.test;
 import io.cucumber.messages.MessageToNdjsonWriter;
 import io.cucumber.messages.NdjsonToMessageReader;
 import io.cucumber.messages.ndjson.Deserializer;
-import io.cucumber.messages.ndjson.JsonFactory;
 import io.cucumber.messages.ndjson.Serializer;
 import io.cucumber.messages.types.Envelope;
 import org.junit.jupiter.api.io.TempDir;
@@ -18,7 +17,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ServiceLoader;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -39,12 +37,11 @@ final class AcceptanceTest {
     }
 
     static Stream<Arguments> services() {
-        return ServiceLoader.load(JsonFactory.class).stream()
-                .map(ServiceLoader.Provider::get)
-                .map(jsonProvider -> Arguments.argumentSet(
-                        jsonProvider.getClass().getSimpleName(),
-                        jsonProvider.deserializer(Envelope.class),
-                           jsonProvider.serializer(Envelope.class)));
+        return JsonUtil.instances()
+                .map(json -> Arguments.argumentSet(
+                        json.getClass().getSimpleName(),
+                        json.deserializer(Envelope.class),
+                           json.serializer(Envelope.class)));
     }
 
     static List<TestCase> testCases() throws IOException {

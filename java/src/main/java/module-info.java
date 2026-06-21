@@ -1,11 +1,10 @@
-import io.cucumber.messages.ndjson.Jackson2;
-import io.cucumber.messages.ndjson.Jackson3;
-import io.cucumber.messages.ndjson.JsonFactory;
+import io.cucumber.messages.ndjson.Jackson2JsonProvider;
+import io.cucumber.messages.ndjson.Jackson3JsonProvider;
+import io.cucumber.messages.ndjson.JsonProvider;
 import org.jspecify.annotations.NullMarked;
 
 @NullMarked
 module io.cucumber.messages.ndjson {
-    uses JsonFactory;
     requires org.jspecify;
     requires io.cucumber.messages;
 
@@ -15,5 +14,7 @@ module io.cucumber.messages.ndjson {
     requires static com.fasterxml.jackson.core;
 
     exports io.cucumber.messages.ndjson;
-    provides JsonFactory with Jackson2, Jackson3;
+
+    provides JsonProvider with Jackson2JsonProvider, Jackson3JsonProvider;
+    uses JsonProvider;
 }

@@ -10,4 +10,21 @@ final class ClassLoaderUtil {
             Thread.currentThread().setContextClassLoader(original);
         }
     }
+
+    static final class FilteredClassLoader extends ClassLoader {
+        private final String prefix;
+
+        FilteredClassLoader(String prefix) {
+            this.prefix = prefix;
+        }
+
+        @Override
+        protected Class<?> loadClass(String name, boolean resolve) throws ClassNotFoundException {
+
+            if (name.startsWith(prefix)) {
+                throw new ClassNotFoundException();
+            }
+            return super.loadClass(name, resolve);
+        }
+    }
 }

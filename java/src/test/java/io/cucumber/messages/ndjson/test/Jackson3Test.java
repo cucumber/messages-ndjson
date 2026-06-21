@@ -2,61 +2,52 @@ package io.cucumber.messages.ndjson.test;
 
 import io.cucumber.messages.ndjson.Deserializer;
 import io.cucumber.messages.ndjson.Jackson3;
-import io.cucumber.messages.ndjson.JsonFactory;
 import io.cucumber.messages.ndjson.Serializer;
 import io.cucumber.messages.types.Envelope;
+import io.cucumber.messages.types.Source;
+import io.cucumber.messages.types.TestRunStarted;
+import io.cucumber.messages.types.Timestamp;
 import org.junit.jupiter.api.Test;
 
-import java.util.Optional;
-import java.util.ServiceLoader;
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
+import java.util.UUID;
 
-import static io.cucumber.messages.ndjson.test.ClassLoaderUtil.executeWith;
+import static io.cucumber.messages.types.SourceMediaType.TEXT_X_CUCUMBER_GHERKIN_PLAIN;
 import static org.assertj.core.api.Assertions.assertThat;
 
 final class Jackson3Test {
 
-    @Test
-    void testSerializer() {
-        assertThat(loadDeserializer())
-                .map(Object::getClass)
-                .map(Class::getName)
-                .contains("io.cucumber.messages.ndjson.Jackson3Json");
-    }
-
+    private final Jackson3 jackson3 = new Jackson3();
+    private final Deserializer<Envelope> deserializer = jackson3.deserializer(Envelope.class);
+    private final Serializer<Envelope> serializer = jackson3.serializer(Envelope.class);
 
     @Test
-    void testDeserializer() {
-        assertThat(loadSerializer())
-                .map(Object::getClass)
-                .map(Class::getName)
-                .contains("io.cucumber.messages.ndjson.Jackson3Json");
+    void can_deserialize_enum() {
+        var source = Envelope.of(new Source("hello.feature", "Feature: Hello", TEXT_X_CUCUMBER_GHERKIN_PLAIN));
+        var json = writeValueAsString(source);
+        assertThat(deserializer.readValue(json)).isEqualTo(source);
     }
 
     @Test
-    void testDeserializerWithoutDependency() {
-        var filteredClassLoader = new FilteredClassLoader("tools.jackson.");
-        executeWith(filteredClassLoader, () -> assertThat(loadSerializer()).isEmpty());
+    void serialize_enums_using_value() {
+        var source = Envelope.of(new Source("hello.feature", "Feature: Hello", TEXT_X_CUCUMBER_GHERKIN_PLAIN));
+        assertThat(writeValueAsString(source))
+                .contains("\"text/x.cucumber.gherkin+plain\"");
     }
 
-    private static Optional<Serializer<Envelope>> loadDeserializer() {
-        var load = ServiceLoader.load(JsonFactory.class);
-        return load.stream()
-                .map(ServiceLoader.Provider::get)
-                .filter(Jackson3.class::isInstance)
-                .map(json -> json.serializer(Envelope.class))
-                .findFirst();
+    @Test
+    void can_deserialize_envelope() {
+        Envelope source = Envelope.of(new TestRunStarted(new Timestamp(3L, 14), UUID.randomUUID().toString()));
+        String json = writeValueAsString(source);
+        assertThat(deserializer.readValue(json)).isEqualTo(source);
     }
 
-    private static Optional<Deserializer<Envelope>> loadSerializer() {
-        var load = ServiceLoader.load(JsonFactory.class);
-        return load.stream()
-                .map(ServiceLoader.Provider::get)
-                .filter(Jackson3.class::isInstance)
-                .map(Jackson3.class::cast)
-                .filter(Jackson3::enabled)
-                .map(json -> json.deserializer(Envelope.class))
-                .findFirst();
+    private String writeValueAsString(Envelope source) {
+        var out =  new ByteArrayOutputStream();
+        serializer.writeValue(new OutputStreamWriter(out, StandardCharsets.UTF_8), source);
+        return out.toString(StandardCharsets.UTF_8);
     }
-
 
 }
