@@ -20,7 +20,7 @@ import java.io.Serial;
 
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_ABSENT;
 
-public final class Jackson2 implements Json {
+final class Jackson2 implements Json {
 
     private final JsonMapper delegate = JsonMapper.builder()
             .addModule(new Jdk8Module())

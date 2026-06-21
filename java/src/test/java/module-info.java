@@ -1,4 +1,3 @@
-import io.cucumber.messages.ndjson.Json;
 import org.jspecify.annotations.NullMarked;
 
 @NullMarked

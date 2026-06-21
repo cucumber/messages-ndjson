@@ -1,7 +1,7 @@
 package io.cucumber.messages.ndjson.test;
 
 import io.cucumber.messages.ndjson.Deserializer;
-import io.cucumber.messages.ndjson.Jackson2;
+import io.cucumber.messages.ndjson.Json;
 import io.cucumber.messages.ndjson.Serializer;
 import io.cucumber.messages.types.Envelope;
 import io.cucumber.messages.types.Source;
@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 final class Jackson2Test {
 
-    private final Jackson2 jackson2 = new Jackson2();
+    private final Json jackson2 = JsonProviderUtil.instance("Jackson2").findFirst().orElseThrow();
     private final Deserializer<Envelope> deserializer = jackson2.deserializer(Envelope.class);
     private final Serializer<Envelope> serializer = jackson2.serializer(Envelope.class);
 

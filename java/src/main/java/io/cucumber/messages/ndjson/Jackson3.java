@@ -15,7 +15,7 @@ import java.io.Serial;
 
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_ABSENT;
 
-public final class Jackson3 implements Json {
+final class Jackson3 implements Json {
 
     JsonMapper delegate = JsonMapper.builder()
             .addModule(new CucumberParameterNamesModule())

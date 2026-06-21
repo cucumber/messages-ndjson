@@ -1,7 +1,6 @@
 package io.cucumber.messages.ndjson.test;
 
 import io.cucumber.messages.ndjson.Deserializer;
-import io.cucumber.messages.ndjson.Jackson3;
 import io.cucumber.messages.ndjson.Serializer;
 import io.cucumber.messages.ndjson.test.ClassLoaderUtil.FilteredClassLoader;
 import io.cucumber.messages.types.Envelope;
@@ -37,15 +36,13 @@ final class Jackson3JsonProviderTest {
     }
 
     private static Optional<Serializer<Envelope>> loadDeserializer() {
-        return JsonUtil.instances()
-                .filter(Jackson3.class::isInstance)
+        return JsonProviderUtil.instance("Jackson3")
                 .map(json -> json.serializer(Envelope.class))
                 .findFirst();
     }
 
     private static Optional<Deserializer<Envelope>> loadSerializer() {
-        return JsonUtil.instances()
-                .filter(Jackson3.class::isInstance)
+        return JsonProviderUtil.instance("Jackson3")
                 .map(json -> json.deserializer(Envelope.class))
                 .findFirst();
     }
