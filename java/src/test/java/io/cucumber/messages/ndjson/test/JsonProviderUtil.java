@@ -11,6 +11,10 @@ import java.util.stream.Stream;
 
 final class JsonProviderUtil {
 
+    private JsonProviderUtil(){
+        /* no-op */
+    }
+
     public static Stream<Json> instance(String name) {
         return Json.instances()
                 .filter(json -> json.getClass().getSimpleName().equals(name));

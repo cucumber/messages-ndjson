@@ -32,7 +32,7 @@ final class AcceptanceTest {
     private final Deserializer<Envelope> deserializer;
     private final Serializer<Envelope> serializer;
 
-    public AcceptanceTest(Deserializer<Envelope> deserializer, Serializer<Envelope> serializer) {
+    AcceptanceTest(Deserializer<Envelope> deserializer, Serializer<Envelope> serializer) {
         this.deserializer = deserializer;
         this.serializer = serializer;
     }
