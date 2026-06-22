@@ -1,10 +1,14 @@
-package io.cucumber.messages.ndjson;
+package io.cucumber.messages.ndjson.test;
 
 import io.cucumber.messages.MessageToNdjsonWriter;
-import io.cucumber.messages.NdjsonToMessageIterable;
+import io.cucumber.messages.NdjsonToMessageReader;
+import io.cucumber.messages.ndjson.Deserializer;
+import io.cucumber.messages.ndjson.Serializer;
 import io.cucumber.messages.types.Envelope;
 import org.junit.jupiter.api.io.TempDir;
+import org.junit.jupiter.params.ParameterizedClass;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.io.IOException;
@@ -20,12 +24,27 @@ import static java.nio.file.Files.newInputStream;
 import static java.nio.file.Files.newOutputStream;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class AcceptanceTest {
+@ParameterizedClass
+@MethodSource("services")
+final class AcceptanceTest {
 
-    private static final Deserializer deserializer = new Deserializer();
-    private static final Serializer serializer = new Serializer();
+    private final Deserializer<Envelope> deserializer;
+    private final Serializer<Envelope> serializer;
 
-    static List<TestCase> acceptance() throws IOException {
+    AcceptanceTest(Deserializer<Envelope> deserializer, Serializer<Envelope> serializer) {
+        this.deserializer = deserializer;
+        this.serializer = serializer;
+    }
+
+    static Stream<Arguments> services() {
+        return JsonUtil.instances()
+                .map(json -> Arguments.argumentSet(
+                        json.getClass().getSimpleName(),
+                        json.deserializer(Envelope.class),
+                           json.serializer(Envelope.class)));
+    }
+
+    static List<TestCase> testCases() throws IOException {
         List<Path> sources = getSources();
         List<TestCase> testCases = new ArrayList<>();
         sources.forEach(path -> testCases.add(new TestCase(path)));
@@ -44,7 +63,7 @@ public class AcceptanceTest {
     Path out;
 
     @ParameterizedTest
-    @MethodSource("acceptance")
+    @MethodSource("testCases")
     void test(TestCase testCase) throws IOException {
         List<Envelope> expectedMessages = readMessages(testCase.source);
         // Tests a object -> file -> object round trip.
@@ -54,20 +73,18 @@ public class AcceptanceTest {
         assertThat(actualMessages).isEqualTo(expectedMessages);
     }
 
-    private static void writeMessages(Path resolved, List<Envelope> messages) throws IOException {
-        try (MessageToNdjsonWriter writer = new MessageToNdjsonWriter(newOutputStream(resolved), serializer)) {
+    private void writeMessages(Path resolved, List<Envelope> messages) throws IOException {
+        try (MessageToNdjsonWriter writer = new MessageToNdjsonWriter(newOutputStream(resolved), serializer::writeValue)) {
             for (Envelope envelope : messages) {
                 writer.write(envelope);
             }
         }
     }
 
-    private static List<Envelope> readMessages(Path testCase) throws IOException {
-        List<Envelope> envelopes = new ArrayList<>();
-        try (NdjsonToMessageIterable reader = new NdjsonToMessageIterable(newInputStream(testCase), deserializer)) {
-            reader.iterator().forEachRemaining(envelopes::add);
+    private List<Envelope> readMessages(Path testCase) throws IOException {
+        try (var reader = new NdjsonToMessageReader(newInputStream(testCase), deserializer::readValue)) {
+            return reader.lines().toList();
         }
-        return envelopes;
     }
 
     static class TestCase {
