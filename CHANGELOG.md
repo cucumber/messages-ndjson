@@ -6,8 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Added `Json.instance()` to obtain an instance using SPI.
 
 ## [0.5.0] - 2026-06-22
+### Changed
+- Make Jackson an optional non-shaded dependency
+- Support Jackson 2 and Jackson 3
+- Add `module-info.java`
+- Use JSpecify for nullability
 
 ## [0.4.1] - 2026-03-02
 ### Changed
