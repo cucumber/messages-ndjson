@@ -4,8 +4,8 @@ import io.cucumber.messages.ndjson.test.ClassLoaderUtil.FilteredClassLoader;
 import org.junit.jupiter.api.Test;
 
 import static io.cucumber.messages.ndjson.test.ClassLoaderUtil.executeWith;
-import static io.cucumber.messages.ndjson.test.JsonProviderUtil.loadDeserializer;
-import static io.cucumber.messages.ndjson.test.JsonProviderUtil.loadSerializer;
+import static io.cucumber.messages.ndjson.test.JsonUtil.loadDeserializer;
+import static io.cucumber.messages.ndjson.test.JsonUtil.loadSerializer;
 import static org.assertj.core.api.Assertions.assertThat;
 
 final class Jackson2JsonProviderTest {

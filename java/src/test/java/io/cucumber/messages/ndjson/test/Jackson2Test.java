@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 final class Jackson2Test {
 
-    private final Json jackson2 = JsonProviderUtil.instance("Jackson2").findFirst().orElseThrow();
+    private final Json jackson2 = JsonUtil.instance("Jackson2").findFirst().orElseThrow();
     private final Deserializer<Envelope> deserializer = jackson2.deserializer(Envelope.class);
     private final Serializer<Envelope> serializer = jackson2.serializer(Envelope.class);
 
