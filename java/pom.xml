@@ -10,14 +10,14 @@
     </parent>
 
     <artifactId>messages-ndjson</artifactId>
-    <version>0.5.0</version>
+    <version>0.5.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Messages NDJSON</name>
     <description>Serialize and deserialize Cucumber Messages to and from JSON</description>
     <url>https://github.com/cucumber/messages-ndjson</url>
 
     <properties>
-        <project.build.outputTimestamp>1782135796</project.build.outputTimestamp>
+        <project.build.outputTimestamp>1782135800</project.build.outputTimestamp>
         <osgi.bundle-symbolic-name>io.cucumber.messagesn.ndjson</osgi.bundle-symbolic-name>
     </properties>
 
@@ -25,7 +25,7 @@
         <connection>scm:git:git://github.com/cucumber/messages-ndjson.git</connection>
         <developerConnection>scm:git:git@github.com:cucumber/messages-ndjson.git</developerConnection>
         <url>git://github.com/cucumber/messages-ndjson.git</url>
-        <tag>v0.5.0</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <dependencyManagement>
