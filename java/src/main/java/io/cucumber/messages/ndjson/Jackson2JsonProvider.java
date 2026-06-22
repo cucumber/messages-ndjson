@@ -24,4 +24,9 @@ public final class Jackson2JsonProvider extends AbstractJsonProvider {
                 )
         );
     }
+
+    @Override
+    public String name() {
+        return "Jackson 2";
+    }
 }

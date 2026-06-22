@@ -32,6 +32,11 @@ public interface JsonProvider {
      */
     List<Dependency> dependencies();
 
+    /**
+     * Name of the Json library used. E.g. {@code Jackson 2} or {@code Jackson 3}.
+     */
+    String name();
+
     record Dependency(String className, String groupId, String artifactId) {
 
     }

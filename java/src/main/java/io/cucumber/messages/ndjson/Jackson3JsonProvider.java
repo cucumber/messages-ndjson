@@ -19,4 +19,9 @@ public final class Jackson3JsonProvider extends AbstractJsonProvider{
                 )
         );
     }
+
+    @Override
+    public String name() {
+        return "Jackson 3";
+    }
 }
