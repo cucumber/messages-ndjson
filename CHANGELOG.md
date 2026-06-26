@@ -26,6 +26,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Set release version to 17 ([#4](https://github.com/cucumber/messages-ndjson/pull/4))
 
+## [0.3.4] - 2026-06-26
+### Fixed
+- Fixe release process
+
 ## [0.3.3] - 2026-06-26
 ### Changed
 - Update dependency com.fasterxml.jackson:jackson-bom to v2.22.0
@@ -58,6 +62,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.5.0]: https://github.com/cucumber/messages-ndjson/compare/v0.4.1...v0.5.0
 [0.4.1]: https://github.com/cucumber/messages-ndjson/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/cucumber/messages-ndjson/compare/v0.3.0...v0.4.0
+[0.3.4]: https://github.com/cucumber/messages-ndjson/compare/v0.3.3...v0.3.4
 [0.3.3]: https://github.com/cucumber/messages-ndjson/compare/v0.3.2...v0.3.3
 [0.3.2]: https://github.com/cucumber/messages-ndjson/compare/v0.3.1...v0.3.2
 [0.3.1]: https://github.com/cucumber/messages-ndjson/compare/v0.3.0...v0.3.1
