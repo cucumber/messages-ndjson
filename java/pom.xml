@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>messages-ndjson</artifactId>
-    <version>0.3.3-SNAPSHOT</version>
+    <version>0.3.3</version>
     <packaging>jar</packaging>
     <name>Messages NDJSON</name>
     <description>Serialize and deserialize Cucumber Messages to and from JSON</description>
@@ -17,7 +17,7 @@
 
     <properties>
         <project.Automatic-Module-Name>io.cucumber.messagesn.ndjson</project.Automatic-Module-Name>
-        <project.build.outputTimestamp>1772623612</project.build.outputTimestamp>
+        <project.build.outputTimestamp>1782472244</project.build.outputTimestamp>
          <osgi.import-package>!com.fasterxml.jackson.*, *</osgi.import-package>
     </properties>
 
@@ -25,7 +25,7 @@
         <connection>scm:git:git://github.com/cucumber/messages-ndjson.git</connection>
         <developerConnection>scm:git:git@github.com:cucumber/messages-ndjson.git</developerConnection>
         <url>git://github.com/cucumber/messages-ndjson.git</url>
-        <tag>HEAD</tag>
+        <tag>v0.3.3</tag>
     </scm>
 
     <dependencyManagement>
