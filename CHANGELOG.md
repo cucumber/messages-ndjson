@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.3.7] - 2026-09-22
 ### Changed
 - Update dependency com.fasterxml.jackson:jackson-bom to v2.22.3
 
@@ -48,7 +50,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Java implementation ([#1](https://github.com/cucumber/messages-ndjson/pull/1))
 
-[Unreleased]: https://github.com/cucumber/messages-ndjson/compare/v0.3.6...HEAD
+[Unreleased]: https://github.com/cucumber/messages-ndjson/compare/v0.3.7...HEAD
+[0.3.7]: https://github.com/cucumber/messages-ndjson/compare/v0.3.6...v0.3.7
 [0.3.6]: https://github.com/cucumber/messages-ndjson/compare/v0.3.5...v0.3.6
 [0.3.5]: https://github.com/cucumber/messages-ndjson/compare/v0.3.4...v0.3.5
 [0.3.4]: https://github.com/cucumber/messages-ndjson/compare/v0.3.3...v0.3.4
