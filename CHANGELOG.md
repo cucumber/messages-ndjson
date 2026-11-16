@@ -7,7 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Fixed
-- Mark opt-in dependencies as optional 
+- Mark opt-in dependencies as optional
+- Exclude opt-in dependencies from OSGI imports
 
 ## [0.6.0] - 2026-11-13
 ### Changed

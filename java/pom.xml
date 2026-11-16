@@ -19,6 +19,8 @@
     <properties>
         <project.build.outputTimestamp>1794573177</project.build.outputTimestamp>
         <osgi.bundle-symbolic-name>io.cucumber.messagesn.ndjson</osgi.bundle-symbolic-name>
+        <!-- Exclude optional dependencies from OSGI imports -->
+        <osgi.import-package>!com.fasterxml.*;!tools.jackson.*;*</osgi.import-package>
     </properties>
 
     <scm>
